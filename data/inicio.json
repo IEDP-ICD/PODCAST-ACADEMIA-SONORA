@@ -1,0 +1,26 @@
+{
+  "nombreProyecto": "Academia Sonora",
+  "eslogan": "El podcast que le pone voz a la educación",
+  "descripcion": "Un podcast educativo creado por dos estudiantes de la Técnica en Integración de Contenidos Digitales (SENA), donde conversamos con docentes, estudiantes y miembros de la comunidad educativa de la Institución Educativa La Divina Pastora.",
+  "institucion": "Institución Educativa La Divina Pastora",
+  "programa": "Técnica en Integración de Contenidos Digitales",
+  "entidadFormadora": "SENA — Servicio Nacional de Aprendizaje",
+  "canalYouTube": "https://www.youtube.com/@AcademiaSonora",
+  "logos": [
+    {
+      "nombre": "Escudo Institución Educativa La Divina Pastora",
+      "imagen": "img/logos/escudo-colegio.png",
+      "alt": "Escudo de la Institución Educativa La Divina Pastora"
+    },
+    {
+      "nombre": "Academia Sonora",
+      "imagen": "img/logos/logo-academia-sonora.jpeg",
+      "alt": "Logotipo del podcast Academia Sonora"
+    },
+    {
+      "nombre": "SENA",
+      "imagen": "img/logos/logo-sena.png",
+      "alt": "Logotipo del SENA"
+    }
+  ]
+}
