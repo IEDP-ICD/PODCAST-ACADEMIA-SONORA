@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia Sonora — El podcast que le pone voz a la educación</title>
+  <meta name="description" content="Academia Sonora es un podcast educativo creado por estudiantes de la Técnica en Integración de Contenidos Digitales (SENA) en la Institución Educativa La Divina Pastora. Entrevistas a docentes, estudiantes y comunidad educativa.">
+  <meta name="keywords" content="podcast educativo, Academia Sonora, SENA, La Divina Pastora, educación, entrevistas, contenidos digitales">
+  <meta name="author" content="Academia Sonora">
+  <meta property="og:title" content="Academia Sonora — Podcast Educativo">
+  <meta property="og:description" content="El podcast que le pone voz a la educación. Entrevistas a docentes, estudiantes y comunidad educativa.">
+  <meta property="og:image" content="img/logos/logo-academia-sonora.jpeg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/jpeg" href="img/logos/logo-academia-sonora.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== BARRA DE NAVEGACIÓN ===== -->
+  <header class="nav" id="inicio">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#inicio">
+        <img src="img/logos/logo-academia-sonora.jpeg" alt="Logotipo de Academia Sonora" class="nav__logo">
+        <span class="nav__name">Academia <em>Sonora</em></span>
+      </a>
+      <nav class="nav__links" aria-label="Navegación principal">
+        <a href="#capitulos">Capítulos</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="btn btn--youtube" id="btn-youtube-nav" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.5 15.6V8.4L15.8 12l-6.3 3.6z"/></svg>
+        YouTube
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO / PORTADA ===== -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow"><span class="rec-dot" aria-hidden="true"></span> EN EL AIRE · PODCAST EDUCATIVO</p>
+        <h1 class="hero__title">La educación<br>también <span class="hero__accent">se escucha</span></h1>
+        <p class="hero__subtitle" id="hero-descripcion">
+          Un podcast creado por estudiantes para darle voz a docentes, estudiantes y a toda la comunidad educativa.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#capitulos">🎧 Escuchar capítulos</a>
+          <a class="btn btn--ghost" href="#equipo">Conocer el equipo</a>
+        </div>
+      </div>
+      <div class="hero__logo-wrap">
+        <div class="hero__ring" aria-hidden="true"></div>
+        <img src="img/logos/logo-academia-sonora.jpeg" alt="Logotipo de Academia Sonora: un ratoncito con corona de laurel leyendo un libro" class="hero__logo">
+      </div>
+    </div>
+
+    <!-- Firma visual: la onda sonora -->
+    <div class="waveform" aria-hidden="true" id="waveform"></div>
+  </section>
+
+  <!-- ===== LOGOS INSTITUCIONALES ===== -->
+  <section class="instituciones" aria-label="Instituciones que respaldan el proyecto">
+    <p class="instituciones__label">Un proyecto respaldado por</p>
+    <div class="instituciones__logos" id="logos-institucionales">
+      <!-- Se cargan desde data/inicio.json. Sube los archivos a img/logos/ -->
+    </div>
+    <p class="instituciones__caption">
+      Proyecto de la <strong>Técnica en Integración de Contenidos Digitales</strong> ·
+      <strong>Institución Educativa La Divina Pastora</strong> · en articulación con el <strong>SENA</strong>
+    </p>
+  </section>
+
+  <!-- ===== CAPÍTULOS ===== -->
+  <section class="section" id="capitulos">
+    <div class="section__head">
+      <p class="eyebrow">🎙️ EPISODIOS</p>
+      <h2 class="section__title">Capítulos del podcast</h2>
+      <p class="section__lead">Cada capítulo es una conversación real con nuestra comunidad educativa. Haz clic en cualquier miniatura para verlo en YouTube.</p>
+    </div>
+    <div class="capitulos__grid" id="capitulos-grid">
+      <!-- Tarjetas generadas desde data/capitulos.json -->
+    </div>
+    <div class="section__cta">
+      <a class="btn btn--youtube btn--lg" id="btn-youtube-capitulos" href="#" target="_blank" rel="noopener">Ver todos los capítulos en YouTube →</a>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- ===== EQUIPO ===== -->
+  <section class="section" id="equipo">
+    <div class="section__head">
+      <p class="eyebrow">👥 NUESTRO EQUIPO</p>
+      <h2 class="section__title">¿Quiénes somos?</h2>
+      <p class="section__lead" id="quienes-somos-texto"></p>
+    </div>
+
+    <div class="mv__grid">
+      <article class="mv__card">
+        <div class="mv__icon" aria-hidden="true">🎯</div>
+        <h3>Misión</h3>
+        <p id="mision-texto"></p>
+      </article>
+      <article class="mv__card">
+        <div class="mv__icon" aria-hidden="true">🔭</div>
+        <h3>Visión</h3>
+        <p id="vision-texto"></p>
+      </article>
+    </div>
+
+    <div class="integrantes__grid" id="integrantes-grid">
+      <!-- Tarjetas generadas desde data/equipo.json -->
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- ===== GALERÍA ===== -->
+  <section class="section" id="galeria">
+    <div class="section__head">
+      <p class="eyebrow">📸 GALERÍA</p>
+      <h2 class="section__title">Detrás de los micrófonos</h2>
+      <p class="section__lead" id="galeria-descripcion"></p>
+    </div>
+    <div class="galeria__grid" id="galeria-grid">
+      <!-- Fotos generadas desde data/galeria.json -->
+    </div>
+  </section>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="footer" id="contacto">
+    <div class="footer__wave" aria-hidden="true"></div>
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="img/logos/logo-academia-sonora.jpeg" alt="" class="footer__logo">
+        <div>
+          <p class="footer__name">Academia Sonora</p>
+          <p class="footer__slogan">El podcast que le pone voz a la educación</p>
+        </div>
+      </div>
+      <div class="footer__info">
+        <p><strong>Institución Educativa La Divina Pastora</strong></p>
+        <p>Técnica en Integración de Contenidos Digitales · SENA</p>
+        <p>Colombia · <span id="anio-actual"></span></p>
+      </div>
+      <div class="footer__social">
+        <a class="btn btn--youtube" id="btn-youtube-footer" href="#" target="_blank" rel="noopener">Nuestro canal de YouTube</a>
+      </div>
+    </div>
+    <p class="footer__credits">Hecho con 🎧 y muchas ganas de aprender · Proyecto formativo SENA</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
