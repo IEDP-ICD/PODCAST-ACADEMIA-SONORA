@@ -1,0 +1,35 @@
+{
+  "descripcion": "Momentos detrás de los micrófonos: grabaciones, entrevistas y el día a día de Academia Sonora.",
+  "fotos": [
+    {
+      "imagen": "img/galeria/foto-01.jpg",
+      "titulo": "Primera grabación",
+      "descripcion": "Nuestro primer episodio en el estudio improvisado del colegio."
+    },
+    {
+      "imagen": "img/galeria/foto-02.jpg",
+      "titulo": "Entrevista a docentes",
+      "descripcion": "Preparando las preguntas para la charla con los profes."
+    },
+    {
+      "imagen": "img/galeria/foto-03.jpg",
+      "titulo": "Edición del podcast",
+      "descripcion": "Sesión de edición de audio en la sala de informática."
+    },
+    {
+      "imagen": "img/galeria/foto-04.jpg",
+      "titulo": "Equipo Academia Sonora",
+      "descripcion": "Las integrantes del proyecto junto a nuestra mascota."
+    },
+    {
+      "imagen": "img/galeria/foto-05.jpg",
+      "titulo": "Comunidad educativa",
+      "descripcion": "Compartiendo el proyecto con estudiantes de otros grados."
+    },
+    {
+      "imagen": "img/galeria/foto-06.jpg",
+      "titulo": "Formación SENA",
+      "descripcion": "Aprendiendo integración de contenidos digitales con nuestro instructor."
+    }
+  ]
+}

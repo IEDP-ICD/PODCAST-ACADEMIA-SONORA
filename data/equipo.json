@@ -1,0 +1,19 @@
+{
+  "quienesSomos": "Somos dos estudiantes de la Institución Educativa La Divina Pastora, aprendices de la Técnica en Integración de Contenidos Digitales del SENA. Creamos Academia Sonora para amplificar las voces de nuestra comunidad educativa: los docentes que inspiran, los estudiantes que sueñan y las personas que hacen posible la escuela todos los días.",
+  "mision": "Producir contenido sonoro educativo de calidad que visibilice las experiencias, saberes e historias de la comunidad educativa, fomentando el diálogo, la escucha activa y el aprendizaje colaborativo dentro y fuera del aula.",
+  "vision": "Ser en 2027 un referente de podcast escolar en la región: un espacio reconocido donde la voz de docentes y estudiantes transforma la manera de entender la educación, inspirando a otras instituciones a contar sus propias historias.",
+  "integrantes": [
+    {
+      "nombre": "Nombre de la integrante 1",
+      "rol": "Cofundadora · Producción y locución",
+      "foto": "img/equipo/integrante-1.jpg",
+      "descripcion": "Apasionada por la comunicación y la radio. Se encarga de la investigación de temas, la preparación de entrevistas y la conducción de los episodios."
+    },
+    {
+      "nombre": "Nombre de la integrante 2",
+      "rol": "Cofundadora · Edición y contenidos digitales",
+      "foto": "img/equipo/integrante-2.jpg",
+      "descripcion": "Amante del diseño y la tecnología. Se encarga de la edición de audio, las miniaturas de los capítulos y la publicación del contenido en las plataformas digitales."
+    }
+  ]
+}

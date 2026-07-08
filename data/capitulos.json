@@ -1,0 +1,33 @@
+{
+  "canalYouTube": "https://www.youtube.com/@AcademiaSonora",
+  "textoBoton": "Ver capítulo en YouTube",
+  "capitulos": [
+    {
+      "numero": 1,
+      "titulo": "La voz del aula: ¿qué significa ser docente hoy?",
+      "descripcion": "Conversamos con una docente de la institución sobre los retos y alegrías de enseñar en la actualidad.",
+      "miniatura": "img/capitulos/capitulo-01.jpg",
+      "enlace": "https://www.youtube.com/watch?v=VIDEO_ID_1",
+      "fecha": "2026-07-15",
+      "duracion": "18:32"
+    },
+    {
+      "numero": 2,
+      "titulo": "Estudiantes que inspiran: historias de superación",
+      "descripcion": "Tres estudiantes nos cuentan cómo la escuela ha transformado sus proyectos de vida.",
+      "miniatura": "img/capitulos/capitulo-02.jpg",
+      "enlace": "https://www.youtube.com/watch?v=VIDEO_ID_2",
+      "fecha": "2026-07-29",
+      "duracion": "22:10"
+    },
+    {
+      "numero": 3,
+      "titulo": "Detrás del timbre: la comunidad que sostiene la escuela",
+      "descripcion": "Hablamos con familias y personal de apoyo sobre su papel invisible pero esencial en la educación.",
+      "miniatura": "img/capitulos/capitulo-03.jpg",
+      "enlace": "https://www.youtube.com/watch?v=VIDEO_ID_3",
+      "fecha": "2026-08-12",
+      "duracion": "20:45"
+    }
+  ]
+}
