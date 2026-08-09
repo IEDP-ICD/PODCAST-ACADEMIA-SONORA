@@ -1,5 +1,5 @@
 {
-  "canalYouTube": "https://www.youtube.com/@AcademiaSonora",
+  "canalYouTube": "https://youtube.com/@academia_sonora?si=NibNVT3ksW9Ii-Zs",
   "textoBoton": "Ver capítulo en YouTube",
   "capitulos": [
     {
@@ -7,9 +7,9 @@
       "titulo": "De la ingeniería al aula!",
       "descripcion": "Conversamos con un docente de la institución sobre su transición de la ingeniería a la docencia.",
       "miniatura": "img/capitulos/capitulo-01.jpg",
-      "enlace": "https://www.youtube.com/watch?v=VIDEO_ID_1",
-      "fecha": "2026-07-15",
-      "duracion": "18:32"
+      "enlace": "https://youtu.be/m7FjzVgGZVc?feature=shared",
+      "fecha": "2026-07-23",
+      "duracion": "3:20"
     },
     {
       "numero": 2,
