@@ -13,21 +13,21 @@
     },
     {
       "numero": 2,
-      "titulo": "Estudiantes que inspiran: historias de superación",
-      "descripcion": "Tres estudiantes nos cuentan cómo la escuela ha transformado sus proyectos de vida.",
+      "titulo": "Innovando la educación: nuevo modelo pedagógico",
+      "descripcion": "Hablamos con el coordinador sobre el nuevo modelo pedagógico que implementara la institución educativa.",
       "miniatura": "img/capitulos/capitulo-02.jpg",
-      "enlace": "https://www.youtube.com/watch?v=VIDEO_ID_2",
-      "fecha": "2026-07-29",
-      "duracion": "22:10"
+      "enlace": "https://youtu.be/nkYUWqlCWzk?si=34or2mYRIj5wcb42",
+      "fecha": "2026-09-01",
+      "duracion": "9:51"
     },
     {
       "numero": 3,
-      "titulo": "Detrás del timbre: la comunidad que sostiene la escuela",
-      "descripcion": "Hablamos con familias y personal de apoyo sobre su papel invisible pero esencial en la educación.",
+      "titulo": "Seguridad vial",
+      "descripcion": "Estuvimos hablando con las secretaria de seguridad vial que vinieron a la institución para hablar con los niños sobre como usas los implementos de seguridad.",
       "miniatura": "img/capitulos/capitulo-03.jpg",
-      "enlace": "https://www.youtube.com/watch?v=VIDEO_ID_3",
-      "fecha": "2026-08-12",
-      "duracion": "20:45"
+      "enlace": "https://youtu.be/_9EAT0HYaF8?si=5aUupxL9TajSbplV",
+      "fecha": "2026-09-08",
+      "duracion": "6:01"
     }
   ]
 }
