@@ -30,6 +30,11 @@
       "imagen": "img/galeria/foto-06.jpg",
       "titulo": "Formación SENA",
       "descripcion": "Aprendiendo integración de contenidos digitales con nuestro instructor."
+    },
+    {
+      "imagen": "img/galeria/foto-07.jpg",
+      "titulo": "Entrevista con el coordinador",
+      "descripcion": "Grabación del capítulo sobre el nuevo modelo pedagógico junto al coordinador Pedro."
     }
   ]
 }
