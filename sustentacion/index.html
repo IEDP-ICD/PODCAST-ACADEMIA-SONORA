@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  SUSTENTACIÓN DEL PROYECTO — ACADEMIA SONORA                 ║
+  ║  Página autocontenida, no enlazada desde el sitio principal. ║
+  ║  Accesible solo escribiendo la URL: /sustentacion/           ║
+  ║  No aparece en el menú ni en buscadores (ver robots.txt).    ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Sustentación · Academia Sonora</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══ Paleta idéntica a la del sitio principal ═══ */
+    :root {
+      --tinta:   #2a150d;
+      --cacao:   #3b1f12;
+      --cacao-2: #4a2817;
+      --naranja: #e07b2c;
+      --ambar:   #f2a93b;
+      --oro:     #f7c34d;
+      --crema:   #fbefd4;
+      --crema-70: rgba(251, 239, 212, .72);
+      --borde:   rgba(247, 195, 77, .18);
+      --sombra:  0 24px 60px rgba(0, 0, 0, .45);
+      --radio:   1.1rem;
+      --fuente-display: "Fraunces", Georgia, serif;
+      --fuente-cuerpo:  "Sora", system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: var(--tinta);
+      font-family: var(--fuente-cuerpo);
+      color: var(--crema);
+    }
+
+    body {
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(224, 123, 44, .18), transparent 60%),
+        radial-gradient(900px 500px at 5% 30%, rgba(247, 195, 77, .08), transparent 55%),
+        var(--tinta);
+    }
+
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ═══ Decorativos ═══ */
+    .rec-dot {
+      width: .55rem; height: .55rem;
+      border-radius: 50%;
+      background: #ff5a3c;
+      box-shadow: 0 0 12px #ff5a3c;
+      animation: parpadeo 1.6s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes parpadeo { 50% { opacity: .25; } }
+
+    .glow {
+      position: fixed;
+      top: -15%; right: -8%;
+      width: 55vw; height: 55vw;
+      max-width: 750px; max-height: 750px;
+      background: radial-gradient(circle, rgba(247, 195, 77, .14), transparent 65%);
+      filter: blur(20px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ═══ Deck ═══ */
+    .deck {
+      position: relative;
+      width: 100vw;
+      height: 100svh;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(3.6rem, 9vh, 5.2rem) clamp(1.2rem, 4vw, 4rem) clamp(4.2rem, 10vh, 5.6rem);
+      opacity: 0;
+      transform: translateX(60px) scale(0.97);
+      pointer-events: none;
+      transition: transform 0.7s cubic-bezier(0.34, 1.1, 0.64, 1), opacity 0.5s ease;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .slide.activa {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+      z-index: 2;
+    }
+    .slide.saliendo-izq { transform: translateX(-70px) scale(0.97); opacity: 0; }
+    .slide.saliendo-der { transform: translateX(70px) scale(0.97); opacity: 0; }
+
+    .slide-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1240px;
+      max-height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(.5rem, 1.6vh, 1.1rem);
+    }
+
+    .slide-inner > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.34, 1.3, 0.64, 1);
+    }
+    .slide.activa .slide-inner > *  { opacity: 1; transform: translateY(0); }
+    .slide.activa .slide-inner > *:nth-child(1) { transition-delay: 0.05s; }
+    .slide.activa .slide-inner > *:nth-child(2) { transition-delay: 0.13s; }
+    .slide.activa .slide-inner > *:nth-child(3) { transition-delay: 0.21s; }
+    .slide.activa .slide-inner > *:nth-child(4) { transition-delay: 0.29s; }
+    .slide.activa .slide-inner > *:nth-child(5) { transition-delay: 0.37s; }
+
+    /* ═══ Tipografía ═══ */
+    .eyebrow {
+      font-size: clamp(.62rem, 1.3vh, .76rem);
+      font-weight: 700;
+      letter-spacing: .18em;
+      color: var(--ambar);
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .slide h2 {
+      font-family: var(--fuente-display);
+      font-weight: 800;
+      font-size: clamp(1.35rem, 4.6vh, 2.5rem);
+      line-height: 1.08;
+      color: var(--crema);
+    }
+    .slide h2 em { font-style: normal; color: transparent; background: linear-gradient(120deg, var(--naranja), var(--oro)); -webkit-background-clip: text; background-clip: text; }
+
+    .lead {
+      font-size: clamp(.72rem, 1.75vh, .98rem);
+      color: var(--crema-70);
+      line-height: 1.55;
+      max-width: 760px;
+    }
+
+    .tarjeta {
+      background: linear-gradient(160deg, var(--cacao), var(--cacao-2));
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      padding: clamp(.8rem, 2vh, 1.4rem) clamp(1rem, 2.2vw, 1.6rem);
+      box-shadow: var(--sombra);
+    }
+    .tarjeta p { font-size: clamp(.7rem, 1.6vh, .9rem); color: var(--crema-70); line-height: 1.55; }
+    .tarjeta h3 {
+      font-family: var(--fuente-display);
+      color: var(--oro);
+      font-size: clamp(.85rem, 2.1vh, 1.15rem);
+      margin-bottom: clamp(.2rem, .8vh, .5rem);
+      display: flex; align-items: center; gap: .5rem;
+    }
+
+    /* ═══ Slide 1: portada ═══ */
+    .portada { text-align: center; align-items: center; }
+    .portada-logo-wrap { position: relative; display: grid; place-items: center; margin: 0 auto clamp(.3rem, 1vh, .6rem); }
+    .portada-ring {
+      position: absolute;
+      width: clamp(110px, 20vh, 190px); aspect-ratio: 1; border-radius: 50%;
+      border: 1px dashed rgba(247,195,77,.35);
+      animation: girar 40s linear infinite;
+    }
+    @keyframes girar { to { transform: rotate(360deg); } }
+    .portada-logo {
+      width: clamp(84px, 15vh, 148px); height: clamp(84px, 15vh, 148px);
+      border-radius: 50%; object-fit: cover;
+      box-shadow: 0 0 0 6px rgba(247,195,77,.25), 0 0 60px rgba(224,123,44,.45), var(--sombra);
+      animation: flotar 6s ease-in-out infinite;
+    }
+    @keyframes flotar { 50% { transform: translateY(-10px); } }
+    .portada h1 {
+      font-family: var(--fuente-display);
+      font-weight: 900;
+      font-size: clamp(1.9rem, 6.2vh, 3.6rem);
+      line-height: 1.03;
+    }
+    .portada h1 span { background: linear-gradient(120deg, var(--naranja), var(--oro)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .portada .subt { font-size: clamp(.8rem, 1.9vh, 1.05rem); color: var(--crema-70); max-width: 40rem; margin: 0 auto; }
+    .integrantes-pill { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .integrantes-pill span {
+      background: rgba(255,255,255,.05); border: 1px solid var(--borde);
+      color: var(--crema); padding: 6px 14px; border-radius: 999px;
+      font-size: clamp(.65rem, 1.5vh, .82rem); font-weight: 600;
+    }
+    .portada-footer { font-size: clamp(.6rem, 1.3vh, .72rem); color: var(--crema-70); letter-spacing: .03em; }
+
+    .waveform-mini {
+      display: flex; align-items: flex-end; justify-content: center; gap: 4px;
+      height: clamp(28px, 6vh, 48px);
+      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    }
+    .waveform-mini span {
+      width: 4px; border-radius: 3px 3px 0 0;
+      background: linear-gradient(to top, var(--naranja), var(--oro));
+      animation: ecualizador 1.4s ease-in-out infinite;
+      transform-origin: bottom;
+    }
+    @keyframes ecualizador { 0%, 100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+
+    /* ═══ Slide 2: integrantes ═══ */
+    .integrantes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.8rem, 2vw, 1.6rem); }
+    .miembro-card {
+      background: rgba(0,0,0,.2); border: 1px solid var(--borde); border-radius: var(--radio);
+      padding: clamp(.8rem, 2vh, 1.5rem); text-align: center;
+    }
+    .miembro-foto {
+      width: clamp(58px, 11vh, 88px); height: clamp(58px, 11vh, 88px); border-radius: 50%;
+      object-fit: cover; margin: 0 auto clamp(.4rem, 1vh, .8rem);
+      border: 3px solid var(--ambar); box-shadow: 0 0 30px rgba(224,123,44,.4);
+    }
+    .miembro-nombre { font-family: var(--fuente-display); font-size: clamp(.9rem, 2vh, 1.15rem); font-weight: 700; }
+    .miembro-rol { color: var(--ambar); font-size: clamp(.6rem, 1.3vh, .72rem); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin: 3px 0 clamp(.35rem, .9vh, .6rem); }
+    .miembro-lista { list-style: none; text-align: left; font-size: clamp(.62rem, 1.4vh, .78rem); color: var(--crema-70); line-height: 1.5; }
+    .miembro-lista li { margin-bottom: 2px; }
+    .miembro-lista b { color: var(--crema); }
+
+    /* Dos columnas texto + imagen */
+    .dos-col { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1rem, 3vw, 2.2rem); align-items: center; }
+    .dos-col.invertido { grid-template-columns: .9fr 1.1fr; }
+    .dos-col img {
+      width: 100%; max-height: clamp(160px, 42vh, 360px); object-fit: cover;
+      border-radius: var(--radio); box-shadow: var(--sombra);
+      border: 1px solid var(--borde);
+    }
+    .dos-col .col-texto { display: flex; flex-direction: column; gap: clamp(.4rem, 1.2vh, .8rem); }
+
+    /* Listas con check */
+    .lista-check { list-style: none; display: grid; gap: clamp(.35rem, 1vh, .6rem); }
+    .lista-check li {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: rgba(0,0,0,.18); border: 1px solid var(--borde); border-radius: .8rem;
+      padding: clamp(.4rem, 1.1vh, .7rem) clamp(.7rem, 1.6vw, 1rem);
+      font-size: clamp(.68rem, 1.55vh, .85rem); color: var(--crema-70);
+    }
+    .lista-check li::before {
+      content: '✓'; flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--naranja), var(--oro)); color: var(--tinta);
+      font-size: .62rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+
+    .objetivo-general {
+      background: linear-gradient(135deg, rgba(224,123,44,.22), rgba(247,195,77,.14));
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      padding: clamp(.7rem, 1.8vh, 1.2rem) clamp(1rem, 2.2vw, 1.5rem);
+      font-size: clamp(.72rem, 1.7vh, .92rem);
+      color: var(--crema);
+      line-height: 1.5;
+    }
+    .objetivo-general .etiqueta {
+      display: block; font-size: clamp(.58rem, 1.2vh, .68rem); letter-spacing: .12em;
+      text-transform: uppercase; font-weight: 800; color: var(--oro); margin-bottom: 4px;
+    }
+
+    .dos-tarjetas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
+
+    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
+    .mv-card {
+      background: linear-gradient(160deg, var(--cacao), var(--cacao-2));
+      border: 1px solid var(--borde); border-radius: var(--radio);
+      padding: clamp(.8rem, 2vh, 1.5rem);
+    }
+    .mv-card .mv-icon { font-size: clamp(1.1rem, 2.6vh, 1.7rem); margin-bottom: clamp(.2rem, .6vh, .4rem); display: block; }
+    .mv-card h3 { font-family: var(--fuente-display); color: var(--oro); font-size: clamp(.9rem, 2.1vh, 1.2rem); margin-bottom: clamp(.25rem, .7vh, .5rem); }
+    .mv-card p { font-size: clamp(.65rem, 1.5vh, .82rem); color: var(--crema-70); line-height: 1.5; }
+
+    .tech-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-chips span {
+      background: rgba(255,255,255,.05); border: 1px solid var(--borde); color: var(--crema);
+      padding: clamp(.3rem, .9vh, .5rem) clamp(.6rem, 1.4vw, .9rem); border-radius: 999px;
+      font-size: clamp(.64rem, 1.45vh, .8rem); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    .recursos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.6rem, 1.6vh, 1rem); }
+
+    .servicio-bloque {
+      background: rgba(0,0,0,.2); border: 1px solid var(--borde); border-radius: var(--radio);
+      padding: clamp(.6rem, 1.6vh, 1.1rem) clamp(.9rem, 2vw, 1.3rem);
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .servicio-bloque .icono {
+      font-size: clamp(1rem, 2.2vh, 1.4rem); flex-shrink: 0;
+      width: clamp(30px, 5.5vh, 42px); height: clamp(30px, 5.5vh, 42px);
+      background: linear-gradient(135deg, rgba(224,123,44,.3), rgba(247,195,77,.2));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .servicio-bloque h3 { font-family: var(--fuente-display); font-size: clamp(.82rem, 1.9vh, 1.02rem); color: var(--crema); margin-bottom: 2px; }
+    .servicio-bloque p { font-size: clamp(.65rem, 1.5vh, .82rem); color: var(--crema-70); line-height: 1.45; }
+
+    .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
+    .segmento-card {
+      background: linear-gradient(160deg, var(--cacao), var(--cacao-2));
+      border: 1px solid var(--borde); border-radius: var(--radio);
+      padding: clamp(.8rem, 2vh, 1.4rem);
+    }
+    .segmento-card .icono { font-size: clamp(1.1rem, 2.4vh, 1.6rem); margin-bottom: clamp(.2rem, .6vh, .4rem); display: block; }
+    .segmento-card h3 { font-family: var(--fuente-display); font-size: clamp(.82rem, 1.9vh, 1.02rem); color: var(--oro); margin-bottom: clamp(.2rem, .6vh, .4rem); }
+    .segmento-card p { font-size: clamp(.66rem, 1.5vh, .84rem); color: var(--crema-70); line-height: 1.5; }
+
+    /* Paleta de colores */
+    .paleta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(.5rem, 1.4vw, .9rem); }
+    .paleta-chip {
+      border-radius: var(--radio); overflow: hidden; border: 1px solid var(--borde);
+      box-shadow: var(--sombra); display: flex; flex-direction: column;
+    }
+    .paleta-chip .swatch { height: clamp(60px, 14vh, 110px); }
+    .paleta-chip .info { background: rgba(0,0,0,.25); padding: clamp(.4rem, 1vh, .7rem) clamp(.4rem, 1vw, .6rem); text-align: center; }
+    .paleta-chip .nombre { font-family: var(--fuente-display); font-size: clamp(.68rem, 1.5vh, .88rem); color: var(--crema); font-weight: 700; }
+    .paleta-chip .hex { font-size: clamp(.56rem, 1.2vh, .68rem); color: var(--crema-70); font-family: monospace; margin-top: 2px; }
+    .fuentes-row { display: flex; gap: clamp(.8rem, 2vw, 1.5rem); justify-content: center; flex-wrap: wrap; }
+    .fuente-card {
+      background: rgba(0,0,0,.2); border: 1px solid var(--borde); border-radius: var(--radio);
+      padding: clamp(.6rem, 1.6vh, 1rem) clamp(1rem, 2.4vw, 1.6rem); text-align: center;
+    }
+    .fuente-card .muestra { font-size: clamp(1.1rem, 2.8vh, 1.8rem); margin-bottom: 2px; }
+    .fuente-card .muestra.display { font-family: var(--fuente-display); font-weight: 700; color: var(--oro); }
+    .fuente-card .muestra.cuerpo { font-family: var(--fuente-cuerpo); color: var(--crema); }
+    .fuente-card .etiqueta-fuente { font-size: clamp(.6rem, 1.3vh, .74rem); color: var(--crema-70); letter-spacing: .05em; text-transform: uppercase; }
+
+    /* Final / gracias */
+    .final { text-align: center; align-items: center; }
+    .final .logo-final {
+      width: clamp(64px, 12vh, 100px); height: clamp(64px, 12vh, 100px); border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--ambar); margin: 0 auto clamp(.4rem, 1vh, .8rem);
+      box-shadow: 0 0 50px rgba(224,123,44,.5);
+    }
+    .final h2 { color: var(--crema); }
+    .whatsapp-final {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--naranja), var(--ambar));
+      color: var(--tinta); padding: clamp(.6rem, 1.6vh, .95rem) clamp(1.2rem, 2.6vw, 1.8rem);
+      border-radius: 999px; text-decoration: none; font-weight: 800;
+      font-size: clamp(.72rem, 1.6vh, .9rem);
+      box-shadow: 0 10px 30px rgba(224,123,44,.4);
+      margin: 0 auto;
+    }
+
+    /* ═══ Controles de navegación ═══ */
+    .nav-controles {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      padding: clamp(.6rem, 1.6vh, 1rem) 1rem calc(clamp(.6rem, 1.6vh, 1rem) + env(safe-area-inset-bottom, 0px));
+      background: linear-gradient(to top, rgba(10,5,3,.7), transparent);
+    }
+    .nav-btn {
+      width: clamp(32px, 6vh, 40px); height: clamp(32px, 6vh, 40px); border-radius: 50%; border: none;
+      background: linear-gradient(135deg, var(--naranja), var(--oro)); color: var(--tinta);
+      font-size: clamp(.9rem, 2vh, 1.1rem); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(224,123,44,.4);
+      transition: transform 0.25s cubic-bezier(0.34,1.5,0.64,1);
+      flex-shrink: 0;
+    }
+    .nav-btn:hover { transform: scale(1.1); }
+    .nav-btn:active { transform: scale(0.92); }
+    .nav-btn.deshabilitado { opacity: 0.3; pointer-events: none; }
+
+    .nav-puntos { display: flex; gap: 5px; flex-wrap: wrap; max-width: 44vw; justify-content: center; }
+    .nav-punto {
+      width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.25);
+      border: none; cursor: pointer; padding: 0; transition: transform 0.25s, background 0.25s; flex-shrink: 0;
+    }
+    .nav-punto.activo { background: var(--oro); transform: scale(1.5); }
+
+    .nav-contador {
+      font-size: clamp(.6rem, 1.3vh, .72rem); color: var(--crema-70); font-weight: 700;
+      letter-spacing: .05em; min-width: 40px; text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .integrantes-grid, .dos-tarjetas, .mv-grid, .segmento-grid, .recursos-grid { grid-template-columns: 1fr; }
+      .dos-col, .dos-col.invertido { grid-template-columns: 1fr; }
+      .dos-col img { max-height: 22vh; }
+      .paleta-grid { grid-template-columns: repeat(3, 1fr); }
+      .nav-puntos { max-width: 38vw; }
+      .slide { padding: clamp(3.4rem, 8vh, 4.6rem) 1rem clamp(4.4rem, 11vh, 5.6rem); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <div class="deck" id="deck">
+
+    <!-- ═══ 1. PORTADA ═══ -->
+    <section class="slide" data-bg="1">
+      <div class="slide-inner portada">
+        <div class="portada-logo-wrap">
+          <div class="portada-ring" aria-hidden="true"></div>
+          <img class="portada-logo" src="../img/logos/logo-academia-sonora.jpeg" alt="Academia Sonora" />
+        </div>
+        <p class="eyebrow"><span class="rec-dot"></span> SUSTENTACIÓN DE PROYECTO · SENA / IEDP</p>
+        <h1>Academia <span>Sonora</span></h1>
+        <p class="subt">El podcast que le pone voz a la educación</p>
+        <div class="integrantes-pill">
+          <span>🎙️ Ana Blanco</span>
+          <span>🎧 Alix Bermonth</span>
+        </div>
+        <div class="waveform-mini" id="waveformPortada"></div>
+        <p class="portada-footer">Técnica en Integración de Contenidos Digitales · Institución Educativa La Divina Pastora · Cúcuta</p>
+      </div>
+    </section>
+
+    <!-- ═══ 2. INTEGRANTES ═══ -->
+    <section class="slide" data-bg="2">
+      <div class="slide-inner">
+        <p class="eyebrow">01 — El equipo</p>
+        <h2>Integrantes</h2>
+        <div class="integrantes-grid">
+          <div class="miembro-card">
+            <img class="miembro-foto" src="../img/equipo/integrante-1.jpg" alt="Ana Blanco" />
+            <div class="miembro-nombre">Ana Blanco</div>
+            <div class="miembro-rol">Cofundadora y locución</div>
+            <ul class="miembro-lista">
+              <li><b>Formación:</b> Grado 10°</li>
+              <li><b>Habilidades:</b> Edición, grabación y presentación</li>
+              <li><b>Conocimientos:</b> Edición de fotos y videos, creación de páginas web, manejo de redes sociales</li>
+            </ul>
+          </div>
+          <div class="miembro-card">
+            <img class="miembro-foto" src="../img/equipo/integrante-2.jpg" alt="Alix Bermonth" />
+            <div class="miembro-nombre">Alix Bermonth</div>
+            <div class="miembro-rol">Edición y contenidos digitales</div>
+            <ul class="miembro-lista">
+              <li><b>Formación:</b> Grado 10°</li>
+              <li><b>Habilidades:</b> Investigación, grabación y presentación</li>
+              <li><b>Conocimientos:</b> Edición de fotos y videos, creación de páginas web, manejo de redes sociales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 3. NECESIDAD E IDEA ═══ -->
+    <section class="slide" data-bg="3">
+      <div class="slide-inner">
+        <p class="eyebrow">02 — El punto de partida</p>
+        <h2>Descripción de la <em>necesidad e idea</em></h2>
+        <div class="dos-tarjetas">
+          <div class="tarjeta">
+            <h3>🔍 La necesidad</h3>
+            <p>Detectamos poca comunicación y bajo interés hacia los temas de nuestra educación. Queremos mostrarlos de forma más llamativa y visibilizar las dificultades para que tengan una solución más pronta.</p>
+          </div>
+          <div class="tarjeta">
+            <h3>💡 Nuestra propuesta</h3>
+            <p>Un espacio informativo creado por estudiantes de Contenidos Digitales: un podcast que informe a estudiantes, docentes y administrativos sobre la comunidad educativa, fomentando el sentido de pertenencia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 4. IDEA DE SOLUCIÓN INNOVADORA ═══ -->
+    <section class="slide" data-bg="4">
+      <div class="slide-inner">
+        <p class="eyebrow">03 — Nuestra propuesta</p>
+        <h2>Idea de solución <em>innovadora</em></h2>
+        <div class="dos-col">
+          <div class="col-texto">
+            <p class="lead">El podcast institucional nace de nuestra propia voz como estudiantes: auténtico y cercano. No solo hablamos — invitamos a cuestionar, reflexionar y participar en la vida escolar, conectando con futuros estudiantes y familias.</p>
+            <p class="lead">Su valor: ofrece al oyente temas de interés para debatir, y beneficia tanto a docentes como a estudiantes que quieran participar.</p>
+          </div>
+          <img src="../img/galeria/foto-06.jpg" alt="Grabación del podcast con estudiantes del SENA" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 5. OBJETIVOS ═══ -->
+    <section class="slide" data-bg="5">
+      <div class="slide-inner">
+        <p class="eyebrow">04 — Hacia dónde vamos</p>
+        <h2>Objetivos</h2>
+        <div class="objetivo-general">
+          <span class="etiqueta">🎯 Objetivo general</span>
+          Crear un espacio de comunicación institucional mediante un podcast que promueva la reflexión, el análisis y la difusión de temas educativos relevantes.
+        </div>
+        <p style="font-size:clamp(.6rem,1.3vh,.7rem); letter-spacing:.1em; text-transform:uppercase; font-weight:800; color:var(--oro);">Objetivos específicos</p>
+        <ul class="lista-check">
+          <li>Informar sobre novedades, proyectos y logros educativos de la institución</li>
+          <li>Fomentar la reflexión crítica sobre problemas actuales de la educación</li>
+          <li>Promover el intercambio de experiencias y buenas prácticas pedagógicas</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ 6. JUSTIFICACIÓN ═══ -->
+    <section class="slide" data-bg="6">
+      <div class="slide-inner">
+        <p class="eyebrow">05 — Por qué vale la pena</p>
+        <h2>Justificación</h2>
+        <div class="tarjeta">
+          <p style="font-size:clamp(.72rem,1.8vh,.95rem); line-height:1.65;">
+            El podcast institucional es una herramienta innovadora para fortalecer la comunicación y la identidad educativa. Buscamos informar, reflexionar y compartir experiencias, aprovechando las TIC para llegar de forma cercana y dinámica a estudiantes, docentes y familias — fomentando la participación y el desarrollo de habilidades comunicativas y tecnológicas en la comunidad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 7. TECNOLOGÍAS ═══ -->
+    <section class="slide" data-bg="7">
+      <div class="slide-inner">
+        <p class="eyebrow">06 — Cómo lo haremos</p>
+        <h2>Tecnologías a <em>emplear</em></h2>
+        <div class="dos-col invertido">
+          <img src="../img/galeria/foto-03.jpg" alt="Grabación del podcast con cámara y audífonos" />
+          <div class="col-texto">
+            <p class="lead">Software de grabación y edición, aplicaciones móviles, plataformas de publicación y herramientas de diseño gráfico:</p>
+            <div class="tech-chips">
+              <span>🎬 Camtasia Studio</span>
+              <span>🎚️ Audacity</span>
+              <span>🎙️ Speaker Studio</span>
+              <span>📱 Grabadora de celular</span>
+              <span>🎧 Spotify</span>
+              <span>🍎 Apple Podcasts</span>
+              <span>🔴 Google Podcasts</span>
+              <span>🎨 Canva</span>
+              <span>📹 OBS Studio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 8. RECURSOS ═══ -->
+    <section class="slide" data-bg="8">
+      <div class="slide-inner">
+        <p class="eyebrow">07 — Lo que necesitamos</p>
+        <h2>Recursos</h2>
+        <div class="recursos-grid">
+          <div class="servicio-bloque"><span class="icono">🏫</span><div><h3>Espacio físico</h3><p>Un lugar tranquilo para grabar: aula, sala acondicionada o cabina, con guiones o plan de contenido educativo.</p></div></div>
+          <div class="servicio-bloque"><span class="icono">🧑‍🤝‍🧑</span><div><h3>Equipo humano</h3><p>Docentes, estudiantes, moderadores y técnicos de apoyo.</p></div></div>
+          <div class="servicio-bloque"><span class="icono">🌐</span><div><h3>Conexión a internet</h3><p>Estable, para subir y difundir los episodios.</p></div></div>
+          <div class="servicio-bloque"><span class="icono">🎨</span><div><h3>Material gráfico y sonoro</h3><p>Portadas, música libre de derechos y efectos de sonido.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 9. MISIÓN Y VISIÓN ═══ -->
+    <section class="slide" data-bg="9">
+      <div class="slide-inner">
+        <p class="eyebrow">08 — Nuestra identidad</p>
+        <h2>Misión & Visión</h2>
+        <div class="mv-grid">
+          <div class="mv-card">
+            <span class="mv-icon">🎯</span>
+            <h3>Nuestra Misión</h3>
+            <p>Crear un espacio de comunicación institucional a través de un podcast educativo que informe, reflexione y comparta experiencias sobre temas relevantes de la educación, fortaleciendo la participación y el sentido de pertenencia de la comunidad.</p>
+          </div>
+          <div class="mv-card">
+            <span class="mv-icon">🔭</span>
+            <h3>Nuestra Visión</h3>
+            <p>Ser en 2027 un referente de podcast escolar en la región: un espacio donde la voz de docentes y estudiantes transforma la manera de entender la educación, inspirando a otras instituciones a contar sus propias historias.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 10. PRODUCTOS Y SERVICIOS ═══ -->
+    <section class="slide" data-bg="10">
+      <div class="slide-inner">
+        <p class="eyebrow">09 — Lo que vamos a construir</p>
+        <h2>Descripción de <em>productos y servicios</em></h2>
+        <div class="servicio-bloque">
+          <span class="icono">📡</span>
+          <div><h3>Plataforma Web de Streaming/Podcast</h3><p>Repositorio de episodios en video, reproductor incrustado, ficha de invitados y notas de cada episodio.</p></div>
+        </div>
+        <div class="servicio-bloque">
+          <span class="icono">🎞️</span>
+          <div><h3>Piezas Multimedia</h3><p>Audiogramas para redes sociales, portadas y banners de episodios, y clips verticales tipo Reels/Shorts.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 11. IMAGEN CORPORATIVA ═══ -->
+    <section class="slide" data-bg="11">
+      <div class="slide-inner">
+        <p class="eyebrow">10 — Nuestra marca</p>
+        <h2>Imagen <em>Corporativa</em></h2>
+        <div class="dos-col">
+          <p class="lead">
+            Diseño circular en tonos café oscuro con borde dorado. Al centro, un ratoncito con corona de laurel sostiene un libro — símbolos del conocimiento, el aprendizaje y la excelencia académica. Abajo, el nombre del proyecto en tipografía clásica refuerza su identidad educativa y profesional.
+          </p>
+          <img src="../img/logos/logo-academia-sonora.jpeg" alt="Logo Academia Sonora" style="background:var(--cacao); padding:1.2rem; border-radius:50%; aspect-ratio:1/1; object-fit:contain; max-height:clamp(140px,32vh,260px);" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 12. SEGMENTO OBJETIVO ═══ -->
+    <section class="slide" data-bg="12">
+      <div class="slide-inner">
+        <p class="eyebrow">11 — A quién llegamos</p>
+        <h2>Segmento <em>Objetivo</em></h2>
+        <div class="segmento-grid">
+          <div class="segmento-card">
+            <span class="icono">🌎</span>
+            <h3>Ubicación</h3>
+            <p>Global — distribución 100% digital a través de YouTube y plataformas de podcast.</p>
+          </div>
+          <div class="segmento-card">
+            <span class="icono">🎓</span>
+            <h3>Perfil</h3>
+            <p>Jóvenes de 13 a 28 años interesados en aprendizaje autónomo, orientación vocacional e innovación educativa, que buscan contenidos dinámicos y accesibles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 13. VENTAJAS COMPETITIVAS ═══ -->
+    <section class="slide" data-bg="13">
+      <div class="slide-inner">
+        <p class="eyebrow">12 — Lo que nos distingue</p>
+        <h2>Ventajas <em>Competitivas</em></h2>
+        <div class="dos-col">
+          <p class="lead">
+            Academia Sonora ofrece contenido educativo en formato podcast, que permite aprender de forma flexible desde cualquier lugar. Aborda temas como el aprendizaje autónomo, la orientación vocacional y la innovación educativa con un lenguaje claro y dinámico. Es gratuito, se distribuye en YouTube y promueve la participación mediante comentarios e interacción en redes sociales.
+          </p>
+          <img src="../img/capitulos/capitulo-02.jpg" alt="Miniatura de capítulo del podcast" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 14. PUBLICIDAD ═══ -->
+    <section class="slide" data-bg="14">
+      <div class="slide-inner">
+        <p class="eyebrow">13 — Cómo lo damos a conocer</p>
+        <h2>Publicidad</h2>
+        <div class="tarjeta">
+          <p style="font-size:clamp(.72rem,1.8vh,.95rem); line-height:1.65;">
+            Anuncios difundidos a través de redes sociales, principalmente en YouTube. Permiten dar a conocer el nombre del proyecto y sus episodios, llegando a más estudiantes, docentes y familias de la comunidad educativa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 15. PALETA DE COLORES ═══ -->
+    <section class="slide" data-bg="15">
+      <div class="slide-inner">
+        <p class="eyebrow">14 — Nuestra identidad visual</p>
+        <h2>Paleta de <em>colores</em></h2>
+        <div class="paleta-grid">
+          <div class="paleta-chip"><div class="swatch" style="background:#2a150d;"></div><div class="info"><div class="nombre">Tinta</div><div class="hex">#2A150D</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#3b1f12;"></div><div class="info"><div class="nombre">Cacao</div><div class="hex">#3B1F12</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#e07b2c;"></div><div class="info"><div class="nombre">Naranja</div><div class="hex">#E07B2C</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#f2a93b;"></div><div class="info"><div class="nombre">Ámbar</div><div class="hex">#F2A93B</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#f7c34d;"></div><div class="info"><div class="nombre">Oro</div><div class="hex">#F7C34D</div></div></div>
+          <div class="paleta-chip"><div class="swatch" style="background:#fbefd4;"></div><div class="info"><div class="nombre">Crema</div><div class="hex">#FBEFD4</div></div></div>
+        </div>
+        <div class="fuentes-row">
+          <div class="fuente-card"><div class="muestra display">Fraunces</div><div class="etiqueta-fuente">Tipografía de títulos</div></div>
+          <div class="fuente-card"><div class="muestra cuerpo">Sora</div><div class="etiqueta-fuente">Tipografía de texto</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 16. CIERRE ═══ -->
+    <section class="slide" data-bg="16">
+      <div class="slide-inner final">
+        <img class="logo-final" src="../img/logos/logo-academia-sonora.jpeg" alt="Academia Sonora" />
+        <p class="eyebrow"><span class="rec-dot"></span> GRACIAS POR SU ATENCIÓN</p>
+        <h2>¡Gracias!</h2>
+        <p class="subt">Academia Sonora — el podcast que le pone voz a la educación.<br>Técnica en Integración de Contenidos Digitales · SENA, IEDP La Divina Pastora.</p>
+        <a class="whatsapp-final" href="https://www.youtube.com/@AcademiaSonora" target="_blank" rel="noopener noreferrer">▶ @AcademiaSonora</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══ Controles de navegación ═══ -->
+  <div class="nav-controles">
+    <button class="nav-btn" id="btnPrev" aria-label="Diapositiva anterior">‹</button>
+    <div class="nav-puntos" id="navPuntos"></div>
+    <button class="nav-btn" id="btnNext" aria-label="Siguiente diapositiva">›</button>
+    <span class="nav-contador" id="navContador">1 / 16</span>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const total = slides.length;
+    let actual = 0;
+
+    const puntosWrap = document.getElementById('navPuntos');
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'nav-punto' + (i === 0 ? ' activo' : '');
+      btn.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}`);
+      btn.addEventListener('click', () => irA(i));
+      puntosWrap.appendChild(btn);
+    });
+    const puntos = Array.from(document.querySelectorAll('.nav-punto'));
+
+    function actualizarUI() {
+      puntos.forEach((p, i) => p.classList.toggle('activo', i === actual));
+      document.getElementById('navContador').textContent = `${actual + 1} / ${total}`;
+      document.getElementById('btnPrev').classList.toggle('deshabilitado', actual === 0);
+      document.getElementById('btnNext').classList.toggle('deshabilitado', actual === total - 1);
+    }
+
+    function irA(indice) {
+      indice = Math.max(0, Math.min(total - 1, indice));
+      if (indice === actual) return;
+      const direccion = indice > actual ? 1 : -1;
+
+      slides.forEach((s, i) => {
+        s.classList.remove('activa', 'saliendo-izq', 'saliendo-der');
+        if (i === actual) {
+          s.classList.add(direccion > 0 ? 'saliendo-izq' : 'saliendo-der');
+        }
+      });
+
+      actual = indice;
+      slides[actual].classList.add('activa');
+      actualizarUI();
+    }
+
+    slides[0].classList.add('activa');
+    actualizarUI();
+
+    document.getElementById('btnPrev').addEventListener('click', () => irA(actual - 1));
+    document.getElementById('btnNext').addEventListener('click', () => irA(actual + 1));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') irA(actual + 1);
+      if (e.key === 'ArrowLeft') irA(actual - 1);
+    });
+
+    /* Navegación táctil (swipe horizontal) */
+    let touchStartX = 0, touchStartY = 0;
+    const deck = document.getElementById('deck');
+
+    deck.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    deck.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) irA(actual + 1); else irA(actual - 1);
+      }
+    }, { passive: true });
+
+    /* Ecualizador decorativo en la portada */
+    (function initWaveform() {
+      const wf = document.getElementById('waveformPortada');
+      if (!wf) return;
+      const n = 16;
+      for (let i = 0; i < n; i++) {
+        const bar = document.createElement('span');
+        const h = 30 + Math.round(Math.random() * 70);
+        bar.style.height = h + '%';
+        bar.style.animationDelay = (Math.random() * 1.4).toFixed(2) + 's';
+        wf.appendChild(bar);
+      }
+    })();
+  </script>
+
+</body>
+</html>
