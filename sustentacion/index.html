@@ -125,13 +125,13 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 1240px;
+      max-width: 1320px;
       max-height: 100%;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: clamp(.5rem, 1.6vh, 1.1rem);
+      gap: clamp(.65rem, 2vh, 1.4rem);
     }
 
     .slide-inner > * {
@@ -148,9 +148,9 @@
 
     /* ═══ Tipografía ═══ */
     .eyebrow {
-      font-size: clamp(.62rem, 1.3vh, .76rem);
+      font-size: clamp(.82rem, 1.9vh, 1.05rem);
       font-weight: 700;
-      letter-spacing: .18em;
+      letter-spacing: .16em;
       color: var(--ambar);
       text-transform: uppercase;
       display: inline-flex;
@@ -161,32 +161,32 @@
     .slide h2 {
       font-family: var(--fuente-display);
       font-weight: 800;
-      font-size: clamp(1.35rem, 4.6vh, 2.5rem);
-      line-height: 1.08;
+      font-size: clamp(1.9rem, 6.8vh, 3.6rem);
+      line-height: 1.06;
       color: var(--crema);
     }
     .slide h2 em { font-style: normal; color: transparent; background: linear-gradient(120deg, var(--naranja), var(--oro)); -webkit-background-clip: text; background-clip: text; }
 
     .lead {
-      font-size: clamp(.72rem, 1.75vh, .98rem);
+      font-size: clamp(1.05rem, 2.6vh, 1.45rem);
       color: var(--crema-70);
-      line-height: 1.55;
-      max-width: 760px;
+      line-height: 1.5;
+      max-width: 860px;
     }
 
     .tarjeta {
       background: linear-gradient(160deg, var(--cacao), var(--cacao-2));
       border: 1px solid var(--borde);
       border-radius: var(--radio);
-      padding: clamp(.8rem, 2vh, 1.4rem) clamp(1rem, 2.2vw, 1.6rem);
+      padding: clamp(1rem, 2.6vh, 1.8rem) clamp(1.2rem, 2.6vw, 2rem);
       box-shadow: var(--sombra);
     }
-    .tarjeta p { font-size: clamp(.7rem, 1.6vh, .9rem); color: var(--crema-70); line-height: 1.55; }
+    .tarjeta p { font-size: clamp(1rem, 2.3vh, 1.3rem); color: var(--crema-70); line-height: 1.5; }
     .tarjeta h3 {
       font-family: var(--fuente-display);
       color: var(--oro);
-      font-size: clamp(.85rem, 2.1vh, 1.15rem);
-      margin-bottom: clamp(.2rem, .8vh, .5rem);
+      font-size: clamp(1.2rem, 3vh, 1.6rem);
+      margin-bottom: clamp(.3rem, 1vh, .6rem);
       display: flex; align-items: center; gap: .5rem;
     }
 
@@ -210,18 +210,18 @@
     .portada h1 {
       font-family: var(--fuente-display);
       font-weight: 900;
-      font-size: clamp(1.9rem, 6.2vh, 3.6rem);
-      line-height: 1.03;
+      font-size: clamp(2.6rem, 8.6vh, 5rem);
+      line-height: 1.02;
     }
     .portada h1 span { background: linear-gradient(120deg, var(--naranja), var(--oro)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .portada .subt { font-size: clamp(.8rem, 1.9vh, 1.05rem); color: var(--crema-70); max-width: 40rem; margin: 0 auto; }
-    .integrantes-pill { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .portada .subt { font-size: clamp(1.1rem, 2.6vh, 1.5rem); color: var(--crema-70); max-width: 44rem; margin: 0 auto; }
+    .integrantes-pill { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
     .integrantes-pill span {
       background: rgba(255,255,255,.05); border: 1px solid var(--borde);
-      color: var(--crema); padding: 6px 14px; border-radius: 999px;
-      font-size: clamp(.65rem, 1.5vh, .82rem); font-weight: 600;
+      color: var(--crema); padding: 8px 18px; border-radius: 999px;
+      font-size: clamp(.9rem, 2.1vh, 1.15rem); font-weight: 600;
     }
-    .portada-footer { font-size: clamp(.6rem, 1.3vh, .72rem); color: var(--crema-70); letter-spacing: .03em; }
+    .portada-footer { font-size: clamp(.82rem, 1.8vh, 1rem); color: var(--crema-70); letter-spacing: .03em; }
 
     .waveform-mini {
       display: flex; align-items: flex-end; justify-content: center; gap: 4px;
@@ -248,9 +248,9 @@
       object-fit: cover; margin: 0 auto clamp(.4rem, 1vh, .8rem);
       border: 3px solid var(--ambar); box-shadow: 0 0 30px rgba(224,123,44,.4);
     }
-    .miembro-nombre { font-family: var(--fuente-display); font-size: clamp(.9rem, 2vh, 1.15rem); font-weight: 700; }
-    .miembro-rol { color: var(--ambar); font-size: clamp(.6rem, 1.3vh, .72rem); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin: 3px 0 clamp(.35rem, .9vh, .6rem); }
-    .miembro-lista { list-style: none; text-align: left; font-size: clamp(.62rem, 1.4vh, .78rem); color: var(--crema-70); line-height: 1.5; }
+    .miembro-nombre { font-family: var(--fuente-display); font-size: clamp(1.25rem, 2.9vh, 1.6rem); font-weight: 700; }
+    .miembro-rol { color: var(--ambar); font-size: clamp(.8rem, 1.8vh, .98rem); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin: 4px 0 clamp(.45rem, 1.2vh, .8rem); }
+    .miembro-lista { list-style: none; text-align: left; font-size: clamp(.85rem, 1.9vh, 1.05rem); color: var(--crema-70); line-height: 1.48; }
     .miembro-lista li { margin-bottom: 2px; }
     .miembro-lista b { color: var(--crema); }
 
@@ -267,29 +267,29 @@
     /* Listas con check */
     .lista-check { list-style: none; display: grid; gap: clamp(.35rem, 1vh, .6rem); }
     .lista-check li {
-      display: flex; align-items: flex-start; gap: 10px;
-      background: rgba(0,0,0,.18); border: 1px solid var(--borde); border-radius: .8rem;
-      padding: clamp(.4rem, 1.1vh, .7rem) clamp(.7rem, 1.6vw, 1rem);
-      font-size: clamp(.68rem, 1.55vh, .85rem); color: var(--crema-70);
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(0,0,0,.18); border: 1px solid var(--borde); border-radius: .9rem;
+      padding: clamp(.55rem, 1.5vh, .9rem) clamp(.9rem, 1.8vw, 1.2rem);
+      font-size: clamp(.9rem, 2vh, 1.15rem); color: var(--crema-70);
     }
     .lista-check li::before {
-      content: '✓'; flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+      content: '✓'; flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
       background: linear-gradient(135deg, var(--naranja), var(--oro)); color: var(--tinta);
-      font-size: .62rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 1px;
+      font-size: .76rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 1px;
     }
 
     .objetivo-general {
       background: linear-gradient(135deg, rgba(224,123,44,.22), rgba(247,195,77,.14));
       border: 1px solid var(--borde);
       border-radius: var(--radio);
-      padding: clamp(.7rem, 1.8vh, 1.2rem) clamp(1rem, 2.2vw, 1.5rem);
-      font-size: clamp(.72rem, 1.7vh, .92rem);
+      padding: clamp(.9rem, 2.3vh, 1.5rem) clamp(1.2rem, 2.6vw, 1.8rem);
+      font-size: clamp(.95rem, 2.2vh, 1.25rem);
       color: var(--crema);
-      line-height: 1.5;
+      line-height: 1.48;
     }
     .objetivo-general .etiqueta {
-      display: block; font-size: clamp(.58rem, 1.2vh, .68rem); letter-spacing: .12em;
-      text-transform: uppercase; font-weight: 800; color: var(--oro); margin-bottom: 4px;
+      display: block; font-size: clamp(.72rem, 1.5vh, .85rem); letter-spacing: .1em;
+      text-transform: uppercase; font-weight: 800; color: var(--oro); margin-bottom: 5px;
     }
 
     .dos-tarjetas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
@@ -300,15 +300,15 @@
       border: 1px solid var(--borde); border-radius: var(--radio);
       padding: clamp(.8rem, 2vh, 1.5rem);
     }
-    .mv-card .mv-icon { font-size: clamp(1.1rem, 2.6vh, 1.7rem); margin-bottom: clamp(.2rem, .6vh, .4rem); display: block; }
-    .mv-card h3 { font-family: var(--fuente-display); color: var(--oro); font-size: clamp(.9rem, 2.1vh, 1.2rem); margin-bottom: clamp(.25rem, .7vh, .5rem); }
-    .mv-card p { font-size: clamp(.65rem, 1.5vh, .82rem); color: var(--crema-70); line-height: 1.5; }
+    .mv-card .mv-icon { font-size: clamp(1.5rem, 3.4vh, 2.2rem); margin-bottom: clamp(.3rem, .8vh, .5rem); display: block; }
+    .mv-card h3 { font-family: var(--fuente-display); color: var(--oro); font-size: clamp(1.2rem, 2.8vh, 1.6rem); margin-bottom: clamp(.35rem, 1vh, .65rem); }
+    .mv-card p { font-size: clamp(.88rem, 2vh, 1.1rem); color: var(--crema-70); line-height: 1.48; }
 
-    .tech-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-chips { display: flex; flex-wrap: wrap; gap: 10px; }
     .tech-chips span {
       background: rgba(255,255,255,.05); border: 1px solid var(--borde); color: var(--crema);
-      padding: clamp(.3rem, .9vh, .5rem) clamp(.6rem, 1.4vw, .9rem); border-radius: 999px;
-      font-size: clamp(.64rem, 1.45vh, .8rem); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;
+      padding: clamp(.4rem, 1.1vh, .65rem) clamp(.75rem, 1.6vw, 1.1rem); border-radius: 999px;
+      font-size: clamp(.85rem, 1.9vh, 1.05rem); font-weight: 600; display: inline-flex; align-items: center; gap: 7px;
     }
 
     .recursos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.6rem, 1.6vh, 1rem); }
@@ -319,23 +319,23 @@
       display: flex; gap: 12px; align-items: flex-start;
     }
     .servicio-bloque .icono {
-      font-size: clamp(1rem, 2.2vh, 1.4rem); flex-shrink: 0;
-      width: clamp(30px, 5.5vh, 42px); height: clamp(30px, 5.5vh, 42px);
+      font-size: clamp(1.3rem, 2.8vh, 1.8rem); flex-shrink: 0;
+      width: clamp(38px, 6.8vh, 52px); height: clamp(38px, 6.8vh, 52px);
       background: linear-gradient(135deg, rgba(224,123,44,.3), rgba(247,195,77,.2));
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
     }
-    .servicio-bloque h3 { font-family: var(--fuente-display); font-size: clamp(.82rem, 1.9vh, 1.02rem); color: var(--crema); margin-bottom: 2px; }
-    .servicio-bloque p { font-size: clamp(.65rem, 1.5vh, .82rem); color: var(--crema-70); line-height: 1.45; }
+    .servicio-bloque h3 { font-family: var(--fuente-display); font-size: clamp(1.08rem, 2.4vh, 1.35rem); color: var(--crema); margin-bottom: 3px; }
+    .servicio-bloque p { font-size: clamp(.85rem, 1.9vh, 1.08rem); color: var(--crema-70); line-height: 1.4; }
 
     .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
     .segmento-card {
       background: linear-gradient(160deg, var(--cacao), var(--cacao-2));
       border: 1px solid var(--borde); border-radius: var(--radio);
-      padding: clamp(.8rem, 2vh, 1.4rem);
+      padding: clamp(1rem, 2.5vh, 1.7rem);
     }
-    .segmento-card .icono { font-size: clamp(1.1rem, 2.4vh, 1.6rem); margin-bottom: clamp(.2rem, .6vh, .4rem); display: block; }
-    .segmento-card h3 { font-family: var(--fuente-display); font-size: clamp(.82rem, 1.9vh, 1.02rem); color: var(--oro); margin-bottom: clamp(.2rem, .6vh, .4rem); }
-    .segmento-card p { font-size: clamp(.66rem, 1.5vh, .84rem); color: var(--crema-70); line-height: 1.5; }
+    .segmento-card .icono { font-size: clamp(1.4rem, 3vh, 2rem); margin-bottom: clamp(.3rem, .8vh, .5rem); display: block; }
+    .segmento-card h3 { font-family: var(--fuente-display); font-size: clamp(1.08rem, 2.4vh, 1.35rem); color: var(--oro); margin-bottom: clamp(.3rem, .8vh, .5rem); }
+    .segmento-card p { font-size: clamp(.88rem, 2vh, 1.1rem); color: var(--crema-70); line-height: 1.48; }
 
     /* Paleta de colores */
     .paleta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(.5rem, 1.4vw, .9rem); }
@@ -343,19 +343,19 @@
       border-radius: var(--radio); overflow: hidden; border: 1px solid var(--borde);
       box-shadow: var(--sombra); display: flex; flex-direction: column;
     }
-    .paleta-chip .swatch { height: clamp(60px, 14vh, 110px); }
-    .paleta-chip .info { background: rgba(0,0,0,.25); padding: clamp(.4rem, 1vh, .7rem) clamp(.4rem, 1vw, .6rem); text-align: center; }
-    .paleta-chip .nombre { font-family: var(--fuente-display); font-size: clamp(.68rem, 1.5vh, .88rem); color: var(--crema); font-weight: 700; }
-    .paleta-chip .hex { font-size: clamp(.56rem, 1.2vh, .68rem); color: var(--crema-70); font-family: monospace; margin-top: 2px; }
+    .paleta-chip .swatch { height: clamp(70px, 15vh, 120px); }
+    .paleta-chip .info { background: rgba(0,0,0,.25); padding: clamp(.5rem, 1.2vh, .85rem) clamp(.4rem, 1vw, .6rem); text-align: center; }
+    .paleta-chip .nombre { font-family: var(--fuente-display); font-size: clamp(.9rem, 1.9vh, 1.12rem); color: var(--crema); font-weight: 700; }
+    .paleta-chip .hex { font-size: clamp(.72rem, 1.5vh, .85rem); color: var(--crema-70); font-family: monospace; margin-top: 3px; }
     .fuentes-row { display: flex; gap: clamp(.8rem, 2vw, 1.5rem); justify-content: center; flex-wrap: wrap; }
     .fuente-card {
       background: rgba(0,0,0,.2); border: 1px solid var(--borde); border-radius: var(--radio);
-      padding: clamp(.6rem, 1.6vh, 1rem) clamp(1rem, 2.4vw, 1.6rem); text-align: center;
+      padding: clamp(.7rem, 1.9vh, 1.2rem) clamp(1.1rem, 2.6vw, 1.8rem); text-align: center;
     }
-    .fuente-card .muestra { font-size: clamp(1.1rem, 2.8vh, 1.8rem); margin-bottom: 2px; }
+    .fuente-card .muestra { font-size: clamp(1.4rem, 3.4vh, 2.2rem); margin-bottom: 3px; }
     .fuente-card .muestra.display { font-family: var(--fuente-display); font-weight: 700; color: var(--oro); }
     .fuente-card .muestra.cuerpo { font-family: var(--fuente-cuerpo); color: var(--crema); }
-    .fuente-card .etiqueta-fuente { font-size: clamp(.6rem, 1.3vh, .74rem); color: var(--crema-70); letter-spacing: .05em; text-transform: uppercase; }
+    .fuente-card .etiqueta-fuente { font-size: clamp(.76rem, 1.6vh, .92rem); color: var(--crema-70); letter-spacing: .05em; text-transform: uppercase; }
 
     /* Final / gracias */
     .final { text-align: center; align-items: center; }
@@ -366,11 +366,11 @@
     }
     .final h2 { color: var(--crema); }
     .whatsapp-final {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; align-items: center; gap: 10px;
       background: linear-gradient(135deg, var(--naranja), var(--ambar));
-      color: var(--tinta); padding: clamp(.6rem, 1.6vh, .95rem) clamp(1.2rem, 2.6vw, 1.8rem);
+      color: var(--tinta); padding: clamp(.8rem, 2vh, 1.15rem) clamp(1.5rem, 3vw, 2.2rem);
       border-radius: 999px; text-decoration: none; font-weight: 800;
-      font-size: clamp(.72rem, 1.6vh, .9rem);
+      font-size: clamp(.95rem, 2.1vh, 1.2rem);
       box-shadow: 0 10px 30px rgba(224,123,44,.4);
       margin: 0 auto;
     }
@@ -410,10 +410,37 @@
     @media (max-width: 680px) {
       .integrantes-grid, .dos-tarjetas, .mv-grid, .segmento-grid, .recursos-grid { grid-template-columns: 1fr; }
       .dos-col, .dos-col.invertido { grid-template-columns: 1fr; }
-      .dos-col img { max-height: 22vh; }
+      .dos-col img { max-height: 20vh; }
       .paleta-grid { grid-template-columns: repeat(3, 1fr); }
       .nav-puntos { max-width: 38vw; }
       .slide { padding: clamp(3.4rem, 8vh, 4.6rem) 1rem clamp(4.4rem, 11vh, 5.6rem); }
+      .slide h2 { font-size: clamp(1.6rem, 5.6vh, 2.6rem); }
+      .slide-inner { gap: clamp(.5rem, 1.5vh, 1rem); }
+
+      /* Tarjetas de integrantes más compactas para caber sin scroll */
+      .integrantes-grid { gap: .6rem; }
+      .miembro-card { padding: .65rem .9rem; }
+      .miembro-foto { width: clamp(48px, 8vh, 64px); height: clamp(48px, 8vh, 64px); margin-bottom: .35rem; }
+      .miembro-nombre { font-size: clamp(1rem, 2.3vh, 1.2rem); }
+      .miembro-rol { margin: 2px 0 .4rem; }
+      .miembro-lista { font-size: clamp(.74rem, 1.6vh, .88rem); line-height: 1.35; }
+      .miembro-lista li { margin-bottom: 1px; }
+    }
+
+    /* Viewports bajos (móviles horizontales o pantallas cortas): comprime más */
+    @media (max-height: 700px) {
+      .slide { padding: clamp(2.8rem, 7vh, 3.8rem) 1.1rem clamp(3.8rem, 9.5vh, 4.8rem); }
+      .slide-inner { gap: clamp(.4rem, 1.2vh, .7rem); }
+      .slide h2 { font-size: clamp(1.35rem, 5.4vh, 2.1rem); line-height: 1.08; }
+      .eyebrow { font-size: clamp(.7rem, 1.9vh, .85rem); }
+      .lead { font-size: clamp(.82rem, 2.2vh, 1rem); line-height: 1.42; }
+      .tarjeta { padding: .65rem .9rem; }
+      .tarjeta p { font-size: clamp(.8rem, 2vh, .96rem); line-height: 1.4; }
+      .tarjeta h3 { font-size: clamp(.92rem, 2.4vh, 1.08rem); margin-bottom: .3rem; }
+      .dos-tarjetas { gap: .6rem; }
+      .dos-col img { max-height: 15vh; }
+      .tech-chips span { font-size: clamp(.72rem, 1.9vh, .88rem); padding: .32rem .6rem; }
+      .miembro-lista { font-size: clamp(.7rem, 1.8vh, .82rem); }
     }
   </style>
 </head>
@@ -515,7 +542,7 @@
           <span class="etiqueta">🎯 Objetivo general</span>
           Crear un espacio de comunicación institucional mediante un podcast que promueva la reflexión, el análisis y la difusión de temas educativos relevantes.
         </div>
-        <p style="font-size:clamp(.6rem,1.3vh,.7rem); letter-spacing:.1em; text-transform:uppercase; font-weight:800; color:var(--oro);">Objetivos específicos</p>
+        <p style="font-size:clamp(.78rem,1.7vh,.95rem); letter-spacing:.1em; text-transform:uppercase; font-weight:800; color:var(--oro);">Objetivos específicos</p>
         <ul class="lista-check">
           <li>Informar sobre novedades, proyectos y logros educativos de la institución</li>
           <li>Fomentar la reflexión crítica sobre problemas actuales de la educación</li>
@@ -530,7 +557,7 @@
         <p class="eyebrow">05 — Por qué vale la pena</p>
         <h2>Justificación</h2>
         <div class="tarjeta">
-          <p style="font-size:clamp(.72rem,1.8vh,.95rem); line-height:1.65;">
+          <p style="font-size:clamp(1rem,2.3vh,1.3rem); line-height:1.55;">
             El podcast institucional es una herramienta innovadora para fortalecer la comunicación y la identidad educativa. Buscamos informar, reflexionar y compartir experiencias, aprovechando las TIC para llegar de forma cercana y dinámica a estudiantes, docentes y familias — fomentando la participación y el desarrollo de habilidades comunicativas y tecnológicas en la comunidad.
           </p>
         </div>
@@ -666,7 +693,7 @@
         <p class="eyebrow">13 — Cómo lo damos a conocer</p>
         <h2>Publicidad</h2>
         <div class="tarjeta">
-          <p style="font-size:clamp(.72rem,1.8vh,.95rem); line-height:1.65;">
+          <p style="font-size:clamp(1rem,2.3vh,1.3rem); line-height:1.55;">
             Anuncios difundidos a través de redes sociales, principalmente en YouTube. Permiten dar a conocer el nombre del proyecto y sus episodios, llegando a más estudiantes, docentes y familias de la comunidad educativa.
           </p>
         </div>
