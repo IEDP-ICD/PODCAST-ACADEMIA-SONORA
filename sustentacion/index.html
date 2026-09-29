@@ -248,13 +248,15 @@
     .integrantes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.8rem, 2vw, 1.6rem); }
     .miembro-card {
       background: rgba(0,0,0,.2); border: 1px solid var(--borde); border-radius: var(--radio);
-      padding: clamp(.8rem, 2vh, 1.5rem); text-align: center;
+      padding: clamp(.8rem, 2vh, 1.5rem); text-align: left;
+      display: flex; flex-direction: row; align-items: center; gap: clamp(1rem, 2.4vw, 1.6rem);
     }
     .miembro-foto {
-      width: clamp(76px, 14vh, 116px); height: clamp(76px, 14vh, 116px); border-radius: 50%;
-      object-fit: cover; margin: 0 auto clamp(.4rem, 1vh, .8rem);
+      width: clamp(190px, 35vh, 290px); height: clamp(190px, 35vh, 290px); border-radius: 50%;
+      object-fit: cover; margin: 0; flex-shrink: 0;
       border: 3px solid var(--ambar); box-shadow: 0 0 30px rgba(224,123,44,.4);
     }
+    .miembro-info { flex: 1 1 auto; min-width: 0; }
     .miembro-nombre { font-family: var(--fuente-display); font-size: clamp(1.6rem, 3.7vh, 2.1rem); font-weight: 700; }
     .miembro-rol { color: var(--ambar); font-size: clamp(1rem, 2.2vh, 1.25rem); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin: 4px 0 clamp(.45rem, 1.2vh, .8rem); }
     .miembro-lista { list-style: none; text-align: left; font-size: clamp(1.05rem, 2.3vh, 1.3rem); color: var(--crema-70); line-height: 1.48; }
@@ -441,8 +443,8 @@
 
       /* Tarjetas de integrantes más compactas para caber sin scroll */
       .integrantes-grid { gap: .6rem; }
-      .miembro-card { padding: .65rem .9rem; }
-      .miembro-foto { width: clamp(48px, 8vh, 64px); height: clamp(48px, 8vh, 64px); margin-bottom: .35rem; }
+      .miembro-card { padding: .65rem .9rem; gap: .8rem; }
+      .miembro-foto { width: clamp(84px, 16vh, 130px); height: clamp(84px, 16vh, 130px); margin: 0; }
       .miembro-nombre { font-size: clamp(1rem, 2.3vh, 1.2rem); }
       .miembro-rol { margin: 2px 0 .4rem; }
       .miembro-lista { font-size: clamp(.74rem, 1.6vh, .88rem); line-height: 1.35; }
@@ -467,7 +469,7 @@
       .dos-col img { min-height: 90px; }
       .tech-chips span { font-size: clamp(.72rem, 1.9vh, .88rem); padding: .32rem .6rem; }
       .miembro-lista { font-size: clamp(.7rem, 1.8vh, .82rem); }
-      .miembro-foto { width: clamp(48px, 8vh, 64px); height: clamp(48px, 8vh, 64px); margin-bottom: .3rem; }
+      .miembro-foto { width: clamp(72px, 14vh, 110px); height: clamp(72px, 14vh, 110px); margin: 0; }
       .miembro-nombre { font-size: clamp(1rem, 2.4vh, 1.2rem); }
       .miembro-rol { font-size: clamp(.72rem, 1.8vh, .85rem); margin: 2px 0 .35rem; }
       .objetivo-general { padding: .55rem .85rem; font-size: clamp(.85rem, 2vh, 1rem); }
@@ -526,23 +528,27 @@
         <div class="integrantes-grid">
           <div class="miembro-card">
             <img class="miembro-foto" src="../img/equipo/integrante-1.jpg" alt="Ana Blanco" />
-            <div class="miembro-nombre">Ana Blanco</div>
-            <div class="miembro-rol">Cofundadora y locución</div>
-            <ul class="miembro-lista">
-              <li><b>Formación:</b> Grado 10°</li>
-              <li><b>Habilidades:</b> Edición, grabación y presentación</li>
-              <li><b>Conocimientos:</b> Edición de fotos y videos, creación de páginas web, manejo de redes sociales</li>
-            </ul>
+            <div class="miembro-info">
+              <div class="miembro-nombre">Ana Blanco</div>
+              <div class="miembro-rol">Cofundadora y locución</div>
+              <ul class="miembro-lista">
+                <li><b>Formación:</b> Grado 10°</li>
+                <li><b>Habilidades:</b> Edición, grabación y presentación</li>
+                <li><b>Conocimientos:</b> Edición de fotos y videos, creación de páginas web, manejo de redes sociales</li>
+              </ul>
+            </div>
           </div>
           <div class="miembro-card">
             <img class="miembro-foto" src="../img/equipo/integrante-2.jpg" alt="Alix Bermonth" />
-            <div class="miembro-nombre">Alix Bermonth</div>
-            <div class="miembro-rol">Edición y contenidos digitales</div>
-            <ul class="miembro-lista">
-              <li><b>Formación:</b> Grado 10°</li>
-              <li><b>Habilidades:</b> Investigación, grabación y presentación</li>
-              <li><b>Conocimientos:</b> Edición de fotos y videos, creación de páginas web, manejo de redes sociales</li>
-            </ul>
+            <div class="miembro-info">
+              <div class="miembro-nombre">Alix Bermonth</div>
+              <div class="miembro-rol">Edición y contenidos digitales</div>
+              <ul class="miembro-lista">
+                <li><b>Formación:</b> Grado 10°</li>
+                <li><b>Habilidades:</b> Investigación, grabación y presentación</li>
+                <li><b>Conocimientos:</b> Edición de fotos y videos, creación de páginas web, manejo de redes sociales</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -629,12 +635,14 @@
             <p class="lead">Software de grabación y edición, aplicaciones móviles, plataformas de publicación y herramientas de diseño gráfico:</p>
             <div class="tech-chips">
               <span>🎬 Camtasia Studio</span>
-              <span>🎚️ Audacity</span>
               <span>📱 Grabadora de celular</span>
               <span>🎨 Canva</span>
-              <span>📹 OBS Studio</span>
               <span>▶️ YouTube</span>
               <span>🅰️ Adobe</span>
+              <span>✂️ CapCut</span>
+              <span>🤖 Claude</span>
+              <span>🐙 GitHub</span>
+              <span>✨ Gemini</span>
             </div>
           </div>
         </div>
