@@ -342,6 +342,12 @@
     .servicio-bloque h3 { font-family: var(--fuente-display); font-size: clamp(1.3rem, 2.9vh, 1.65rem); color: var(--crema); margin-bottom: 3px; }
     .servicio-bloque p { font-size: clamp(1.05rem, 2.3vh, 1.3rem); color: var(--crema-70); line-height: 1.4; }
 
+    /* Panel de códigos QR (dos-col) */
+    .qr-panel { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: clamp(.7rem, 2vh, 1.4rem); }
+    .qr-card { display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+    .dos-col .qr-card img { width: clamp(110px, 15vh, 200px); height: auto; border-radius: .8rem; box-shadow: var(--sombra); }
+    .qr-card span { font-size: clamp(.8rem, 1.7vh, .98rem); line-height: 1.3; color: var(--crema-70); text-align: center; font-weight: 600; max-width: 11rem; }
+
     .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
     .segmento-card {
       background: linear-gradient(160deg, var(--cacao), var(--cacao-2));
@@ -485,6 +491,10 @@
       .servicio-bloque h3 { font-size: clamp(.88rem, 2vh, 1.02rem); margin-bottom: 0; }
       .servicio-bloque p { font-size: clamp(.7rem, 1.6vh, .8rem); line-height: 1.26; }
       .recursos-grid { gap: .4rem; }
+      /* Panel de QR: en columna angosta se ponen en fila para no apilar demasiado alto */
+      .qr-panel { flex-direction: row; gap: .8rem; }
+      .dos-col .qr-card img { width: clamp(70px, 20vw, 120px); }
+      .qr-card span { font-size: .68rem; max-width: 7.2rem; }
       .paleta-grid { gap: .4rem; }
       .paleta-chip .swatch { height: 46px; }
       .paleta-chip .info { padding: .3rem .3rem; }
@@ -688,13 +698,27 @@
       <div class="slide-inner">
         <p class="eyebrow">09 — Lo que vamos a construir</p>
         <h2>Descripción de <em>productos y servicios</em></h2>
-        <div class="servicio-bloque">
-          <span class="icono">📡</span>
-          <div><h3>Plataforma Web de Streaming/Podcast</h3><p>Repositorio de episodios en video, reproductor incrustado, ficha de invitados y notas de cada episodio.</p></div>
-        </div>
-        <div class="servicio-bloque">
-          <span class="icono">🎞️</span>
-          <div><h3>Piezas Multimedia</h3><p>Audiogramas para redes sociales, portadas y banners de episodios, y clips verticales tipo Reels/Shorts.</p></div>
+        <div class="dos-col">
+          <div class="col-texto" style="align-items: stretch;">
+            <div class="servicio-bloque">
+              <span class="icono">📡</span>
+              <div><h3>Plataforma Web de Streaming/Podcast</h3><p>Repositorio de episodios en video, reproductor incrustado, ficha de invitados y notas de cada episodio.</p></div>
+            </div>
+            <div class="servicio-bloque">
+              <span class="icono">🎞️</span>
+              <div><h3>Piezas Multimedia</h3><p>Audiogramas para redes sociales, portadas y banners de episodios, y clips verticales tipo Reels/Shorts.</p></div>
+            </div>
+          </div>
+          <div class="qr-panel">
+            <div class="qr-card">
+              <img src="img/qr-youtube.jpg" alt="Código QR al canal de YouTube de Academia Sonora" />
+              <span>Escanea y mira nuestro canal en YouTube</span>
+            </div>
+            <div class="qr-card">
+              <img src="img/qr-sitio.jpg" alt="Código QR al sitio web de Academia Sonora" />
+              <span>Escanea y visita nuestro sitio web</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
