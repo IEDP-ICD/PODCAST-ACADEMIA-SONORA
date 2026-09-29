@@ -28,6 +28,14 @@
       "enlace": "https://youtu.be/_9EAT0HYaF8?si=5aUupxL9TajSbplV",
       "fecha": "2026-09-08",
       "duracion": "6:01"
+    },
+    {
+      "numero": 4,
+      "titulo": "SIEE: Sistema Institucional de Evaluación de los Estudiantes",
+      "descripcion": "En este video explicamos brevemente cómo funciona nuestro sistema de evaluación de la Institución Educativa La Divina Pastora.",
+      "miniatura": "img/capitulos/capitulo-04.jpg",
+      "enlace": "https://youtu.be/cK7ZMqWJeMo?si=krgZUWNviofCJqeD",
+      "fecha": "2026-09-29"
     }
   ]
 }
