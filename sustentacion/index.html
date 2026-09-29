@@ -125,13 +125,24 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 1320px;
+      max-width: 1800px;
       max-height: 100%;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      text-align: center;
       gap: clamp(.65rem, 2vh, 1.4rem);
+    }
+
+    .deco-icon {
+      position: absolute;
+      opacity: .14;
+      pointer-events: none;
+      z-index: 0;
+      font-size: clamp(1.8rem, 4.4vh, 3.2rem);
+      animation: flotar 7s ease-in-out infinite;
     }
 
     .slide-inner > * {
@@ -148,30 +159,32 @@
 
     /* ═══ Tipografía ═══ */
     .eyebrow {
-      font-size: clamp(.82rem, 1.9vh, 1.05rem);
+      font-size: clamp(1.05rem, 2.5vh, 1.4rem);
       font-weight: 700;
       letter-spacing: .16em;
       color: var(--ambar);
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: .5rem;
     }
 
     .slide h2 {
       font-family: var(--fuente-display);
       font-weight: 800;
-      font-size: clamp(1.9rem, 6.8vh, 3.6rem);
+      font-size: clamp(2.5rem, 9vh, 5.2rem);
       line-height: 1.06;
       color: var(--crema);
     }
     .slide h2 em { font-style: normal; color: transparent; background: linear-gradient(120deg, var(--naranja), var(--oro)); -webkit-background-clip: text; background-clip: text; }
 
     .lead {
-      font-size: clamp(1.05rem, 2.6vh, 1.45rem);
+      font-size: clamp(1.35rem, 3.4vh, 1.95rem);
       color: var(--crema-70);
       line-height: 1.5;
-      max-width: 860px;
+      max-width: 960px;
+      margin: 0 auto;
     }
 
     .tarjeta {
@@ -181,13 +194,13 @@
       padding: clamp(1rem, 2.6vh, 1.8rem) clamp(1.2rem, 2.6vw, 2rem);
       box-shadow: var(--sombra);
     }
-    .tarjeta p { font-size: clamp(1rem, 2.3vh, 1.3rem); color: var(--crema-70); line-height: 1.5; }
+    .tarjeta p { font-size: clamp(1.25rem, 2.9vh, 1.65rem); color: var(--crema-70); line-height: 1.5; }
     .tarjeta h3 {
       font-family: var(--fuente-display);
       color: var(--oro);
-      font-size: clamp(1.2rem, 3vh, 1.6rem);
+      font-size: clamp(1.5rem, 3.8vh, 2.1rem);
       margin-bottom: clamp(.3rem, 1vh, .6rem);
-      display: flex; align-items: center; gap: .5rem;
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
     }
 
     /* ═══ Slide 1: portada ═══ */
@@ -195,14 +208,14 @@
     .portada-logo-wrap { position: relative; display: grid; place-items: center; margin: 0 auto clamp(.3rem, 1vh, .6rem); }
     .portada-ring {
       position: absolute;
-      width: clamp(110px, 20vh, 190px); aspect-ratio: 1; border-radius: 50%;
+      width: clamp(150px, 26vh, 250px); aspect-ratio: 1; border-radius: 50%;
       border: 1px dashed rgba(247,195,77,.35);
       animation: girar 40s linear infinite;
     }
     @keyframes girar { to { transform: rotate(360deg); } }
     .portada-logo {
-      width: clamp(84px, 15vh, 148px); height: clamp(84px, 15vh, 148px);
-      border-radius: 50%; object-fit: cover;
+      width: clamp(118px, 20vh, 195px); height: clamp(118px, 20vh, 195px);
+      border-radius: 50%; object-fit: contain; background: var(--cacao);
       box-shadow: 0 0 0 6px rgba(247,195,77,.25), 0 0 60px rgba(224,123,44,.45), var(--sombra);
       animation: flotar 6s ease-in-out infinite;
     }
@@ -210,18 +223,12 @@
     .portada h1 {
       font-family: var(--fuente-display);
       font-weight: 900;
-      font-size: clamp(2.6rem, 8.6vh, 5rem);
+      font-size: clamp(3.4rem, 11vh, 6.6rem);
       line-height: 1.02;
     }
     .portada h1 span { background: linear-gradient(120deg, var(--naranja), var(--oro)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .portada .subt { font-size: clamp(1.1rem, 2.6vh, 1.5rem); color: var(--crema-70); max-width: 44rem; margin: 0 auto; }
-    .integrantes-pill { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .integrantes-pill span {
-      background: rgba(255,255,255,.05); border: 1px solid var(--borde);
-      color: var(--crema); padding: 8px 18px; border-radius: 999px;
-      font-size: clamp(.9rem, 2.1vh, 1.15rem); font-weight: 600;
-    }
-    .portada-footer { font-size: clamp(.82rem, 1.8vh, 1rem); color: var(--crema-70); letter-spacing: .03em; }
+    .portada .subt { font-size: clamp(1.4rem, 3.2vh, 1.9rem); color: var(--crema-70); max-width: 44rem; margin: 0 auto; }
+    .portada-footer { font-size: clamp(1rem, 2.1vh, 1.2rem); color: var(--crema-70); letter-spacing: .03em; }
 
     .waveform-mini {
       display: flex; align-items: flex-end; justify-content: center; gap: 4px;
@@ -244,33 +251,34 @@
       padding: clamp(.8rem, 2vh, 1.5rem); text-align: center;
     }
     .miembro-foto {
-      width: clamp(58px, 11vh, 88px); height: clamp(58px, 11vh, 88px); border-radius: 50%;
+      width: clamp(76px, 14vh, 116px); height: clamp(76px, 14vh, 116px); border-radius: 50%;
       object-fit: cover; margin: 0 auto clamp(.4rem, 1vh, .8rem);
       border: 3px solid var(--ambar); box-shadow: 0 0 30px rgba(224,123,44,.4);
     }
-    .miembro-nombre { font-family: var(--fuente-display); font-size: clamp(1.25rem, 2.9vh, 1.6rem); font-weight: 700; }
-    .miembro-rol { color: var(--ambar); font-size: clamp(.8rem, 1.8vh, .98rem); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin: 4px 0 clamp(.45rem, 1.2vh, .8rem); }
-    .miembro-lista { list-style: none; text-align: left; font-size: clamp(.85rem, 1.9vh, 1.05rem); color: var(--crema-70); line-height: 1.48; }
+    .miembro-nombre { font-family: var(--fuente-display); font-size: clamp(1.6rem, 3.7vh, 2.1rem); font-weight: 700; }
+    .miembro-rol { color: var(--ambar); font-size: clamp(1rem, 2.2vh, 1.25rem); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin: 4px 0 clamp(.45rem, 1.2vh, .8rem); }
+    .miembro-lista { list-style: none; text-align: left; font-size: clamp(1.05rem, 2.3vh, 1.3rem); color: var(--crema-70); line-height: 1.48; }
     .miembro-lista li { margin-bottom: 2px; }
     .miembro-lista b { color: var(--crema); }
 
     /* Dos columnas texto + imagen */
-    .dos-col { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1rem, 3vw, 2.2rem); align-items: center; }
-    .dos-col.invertido { grid-template-columns: .9fr 1.1fr; }
+    .dos-col { display: grid; grid-template-columns: 1fr .95fr; gap: clamp(1.2rem, 3.2vw, 2.6rem); align-items: center; }
+    .dos-col.invertido { grid-template-columns: .95fr 1fr; }
     .dos-col img {
-      width: 100%; max-height: clamp(160px, 42vh, 360px); object-fit: cover;
+      width: 100%; height: clamp(280px, 62vh, 640px); object-fit: cover;
       border-radius: var(--radio); box-shadow: var(--sombra);
       border: 1px solid var(--borde);
     }
-    .dos-col .col-texto { display: flex; flex-direction: column; gap: clamp(.4rem, 1.2vh, .8rem); }
+    .dos-col .col-texto { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(.4rem, 1.2vh, .8rem); }
 
     /* Listas con check */
-    .lista-check { list-style: none; display: grid; gap: clamp(.35rem, 1vh, .6rem); }
+    .lista-check { list-style: none; display: grid; gap: clamp(.35rem, 1vh, .6rem); text-align: left; }
     .lista-check li {
       display: flex; align-items: flex-start; gap: 12px;
       background: rgba(0,0,0,.18); border: 1px solid var(--borde); border-radius: .9rem;
       padding: clamp(.55rem, 1.5vh, .9rem) clamp(.9rem, 1.8vw, 1.2rem);
-      font-size: clamp(.9rem, 2vh, 1.15rem); color: var(--crema-70);
+      font-size: clamp(1.1rem, 2.5vh, 1.45rem); color: var(--crema-70);
+      text-align: left;
     }
     .lista-check li::before {
       content: '✓'; flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
@@ -283,12 +291,12 @@
       border: 1px solid var(--borde);
       border-radius: var(--radio);
       padding: clamp(.9rem, 2.3vh, 1.5rem) clamp(1.2rem, 2.6vw, 1.8rem);
-      font-size: clamp(.95rem, 2.2vh, 1.25rem);
+      font-size: clamp(1.2rem, 2.8vh, 1.6rem);
       color: var(--crema);
       line-height: 1.48;
     }
     .objetivo-general .etiqueta {
-      display: block; font-size: clamp(.72rem, 1.5vh, .85rem); letter-spacing: .1em;
+      display: block; font-size: clamp(.9rem, 1.9vh, 1.05rem); letter-spacing: .1em;
       text-transform: uppercase; font-weight: 800; color: var(--oro); margin-bottom: 5px;
     }
 
@@ -300,32 +308,32 @@
       border: 1px solid var(--borde); border-radius: var(--radio);
       padding: clamp(.8rem, 2vh, 1.5rem);
     }
-    .mv-card .mv-icon { font-size: clamp(1.5rem, 3.4vh, 2.2rem); margin-bottom: clamp(.3rem, .8vh, .5rem); display: block; }
-    .mv-card h3 { font-family: var(--fuente-display); color: var(--oro); font-size: clamp(1.2rem, 2.8vh, 1.6rem); margin-bottom: clamp(.35rem, 1vh, .65rem); }
-    .mv-card p { font-size: clamp(.88rem, 2vh, 1.1rem); color: var(--crema-70); line-height: 1.48; }
+    .mv-card .mv-icon { font-size: clamp(1.9rem, 4.2vh, 2.7rem); margin-bottom: clamp(.3rem, .8vh, .5rem); display: block; }
+    .mv-card h3 { font-family: var(--fuente-display); color: var(--oro); font-size: clamp(1.5rem, 3.4vh, 1.95rem); margin-bottom: clamp(.35rem, 1vh, .65rem); }
+    .mv-card p { font-size: clamp(1.1rem, 2.5vh, 1.35rem); color: var(--crema-70); line-height: 1.48; }
 
-    .tech-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tech-chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
     .tech-chips span {
       background: rgba(255,255,255,.05); border: 1px solid var(--borde); color: var(--crema);
-      padding: clamp(.4rem, 1.1vh, .65rem) clamp(.75rem, 1.6vw, 1.1rem); border-radius: 999px;
-      font-size: clamp(.85rem, 1.9vh, 1.05rem); font-weight: 600; display: inline-flex; align-items: center; gap: 7px;
+      padding: clamp(.45rem, 1.2vh, .7rem) clamp(.85rem, 1.8vw, 1.2rem); border-radius: 999px;
+      font-size: clamp(1.05rem, 2.3vh, 1.3rem); font-weight: 600; display: inline-flex; align-items: center; gap: 7px;
     }
 
     .recursos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.6rem, 1.6vh, 1rem); }
 
     .servicio-bloque {
       background: rgba(0,0,0,.2); border: 1px solid var(--borde); border-radius: var(--radio);
-      padding: clamp(.6rem, 1.6vh, 1.1rem) clamp(.9rem, 2vw, 1.3rem);
-      display: flex; gap: 12px; align-items: flex-start;
+      padding: clamp(.8rem, 2vh, 1.4rem) clamp(.9rem, 2vw, 1.3rem);
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px;
     }
     .servicio-bloque .icono {
-      font-size: clamp(1.3rem, 2.8vh, 1.8rem); flex-shrink: 0;
-      width: clamp(38px, 6.8vh, 52px); height: clamp(38px, 6.8vh, 52px);
+      font-size: clamp(1.6rem, 3.4vh, 2.2rem); flex-shrink: 0;
+      width: clamp(48px, 8.2vh, 64px); height: clamp(48px, 8.2vh, 64px);
       background: linear-gradient(135deg, rgba(224,123,44,.3), rgba(247,195,77,.2));
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
     }
-    .servicio-bloque h3 { font-family: var(--fuente-display); font-size: clamp(1.08rem, 2.4vh, 1.35rem); color: var(--crema); margin-bottom: 3px; }
-    .servicio-bloque p { font-size: clamp(.85rem, 1.9vh, 1.08rem); color: var(--crema-70); line-height: 1.4; }
+    .servicio-bloque h3 { font-family: var(--fuente-display); font-size: clamp(1.3rem, 2.9vh, 1.65rem); color: var(--crema); margin-bottom: 3px; }
+    .servicio-bloque p { font-size: clamp(1.05rem, 2.3vh, 1.3rem); color: var(--crema-70); line-height: 1.4; }
 
     .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); }
     .segmento-card {
@@ -333,9 +341,9 @@
       border: 1px solid var(--borde); border-radius: var(--radio);
       padding: clamp(1rem, 2.5vh, 1.7rem);
     }
-    .segmento-card .icono { font-size: clamp(1.4rem, 3vh, 2rem); margin-bottom: clamp(.3rem, .8vh, .5rem); display: block; }
-    .segmento-card h3 { font-family: var(--fuente-display); font-size: clamp(1.08rem, 2.4vh, 1.35rem); color: var(--oro); margin-bottom: clamp(.3rem, .8vh, .5rem); }
-    .segmento-card p { font-size: clamp(.88rem, 2vh, 1.1rem); color: var(--crema-70); line-height: 1.48; }
+    .segmento-card .icono { font-size: clamp(1.8rem, 3.6vh, 2.4rem); margin-bottom: clamp(.3rem, .8vh, .5rem); display: block; }
+    .segmento-card h3 { font-family: var(--fuente-display); font-size: clamp(1.3rem, 2.9vh, 1.65rem); color: var(--oro); margin-bottom: clamp(.3rem, .8vh, .5rem); }
+    .segmento-card p { font-size: clamp(1.05rem, 2.3vh, 1.3rem); color: var(--crema-70); line-height: 1.48; }
 
     /* Paleta de colores */
     .paleta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(.5rem, 1.4vw, .9rem); }
@@ -343,24 +351,24 @@
       border-radius: var(--radio); overflow: hidden; border: 1px solid var(--borde);
       box-shadow: var(--sombra); display: flex; flex-direction: column;
     }
-    .paleta-chip .swatch { height: clamp(70px, 15vh, 120px); }
+    .paleta-chip .swatch { height: clamp(90px, 17vh, 150px); }
     .paleta-chip .info { background: rgba(0,0,0,.25); padding: clamp(.5rem, 1.2vh, .85rem) clamp(.4rem, 1vw, .6rem); text-align: center; }
-    .paleta-chip .nombre { font-family: var(--fuente-display); font-size: clamp(.9rem, 1.9vh, 1.12rem); color: var(--crema); font-weight: 700; }
-    .paleta-chip .hex { font-size: clamp(.72rem, 1.5vh, .85rem); color: var(--crema-70); font-family: monospace; margin-top: 3px; }
+    .paleta-chip .nombre { font-family: var(--fuente-display); font-size: clamp(1.05rem, 2.2vh, 1.3rem); color: var(--crema); font-weight: 700; }
+    .paleta-chip .hex { font-size: clamp(.85rem, 1.7vh, 1rem); color: var(--crema-70); font-family: monospace; margin-top: 3px; }
     .fuentes-row { display: flex; gap: clamp(.8rem, 2vw, 1.5rem); justify-content: center; flex-wrap: wrap; }
     .fuente-card {
       background: rgba(0,0,0,.2); border: 1px solid var(--borde); border-radius: var(--radio);
       padding: clamp(.7rem, 1.9vh, 1.2rem) clamp(1.1rem, 2.6vw, 1.8rem); text-align: center;
     }
-    .fuente-card .muestra { font-size: clamp(1.4rem, 3.4vh, 2.2rem); margin-bottom: 3px; }
+    .fuente-card .muestra { font-size: clamp(1.7rem, 4vh, 2.6rem); margin-bottom: 3px; }
     .fuente-card .muestra.display { font-family: var(--fuente-display); font-weight: 700; color: var(--oro); }
     .fuente-card .muestra.cuerpo { font-family: var(--fuente-cuerpo); color: var(--crema); }
-    .fuente-card .etiqueta-fuente { font-size: clamp(.76rem, 1.6vh, .92rem); color: var(--crema-70); letter-spacing: .05em; text-transform: uppercase; }
+    .fuente-card .etiqueta-fuente { font-size: clamp(.9rem, 1.9vh, 1.08rem); color: var(--crema-70); letter-spacing: .05em; text-transform: uppercase; }
 
     /* Final / gracias */
     .final { text-align: center; align-items: center; }
     .final .logo-final {
-      width: clamp(64px, 12vh, 100px); height: clamp(64px, 12vh, 100px); border-radius: 50%; object-fit: cover;
+      width: clamp(84px, 15vh, 130px); height: clamp(84px, 15vh, 130px); border-radius: 50%; object-fit: contain; background: var(--cacao);
       border: 3px solid var(--ambar); margin: 0 auto clamp(.4rem, 1vh, .8rem);
       box-shadow: 0 0 50px rgba(224,123,44,.5);
     }
@@ -368,9 +376,9 @@
     .whatsapp-final {
       display: inline-flex; align-items: center; gap: 10px;
       background: linear-gradient(135deg, var(--naranja), var(--ambar));
-      color: var(--tinta); padding: clamp(.8rem, 2vh, 1.15rem) clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--tinta); padding: clamp(.9rem, 2.3vh, 1.3rem) clamp(1.7rem, 3.4vw, 2.5rem);
       border-radius: 999px; text-decoration: none; font-weight: 800;
-      font-size: clamp(.95rem, 2.1vh, 1.2rem);
+      font-size: clamp(1.15rem, 2.5vh, 1.4rem);
       box-shadow: 0 10px 30px rgba(224,123,44,.4);
       margin: 0 auto;
     }
@@ -425,6 +433,7 @@
       .miembro-rol { margin: 2px 0 .4rem; }
       .miembro-lista { font-size: clamp(.74rem, 1.6vh, .88rem); line-height: 1.35; }
       .miembro-lista li { margin-bottom: 1px; }
+      .deco-icon { display: none; }
     }
 
     /* Viewports bajos (móviles horizontales o pantallas cortas): comprime más */
@@ -441,6 +450,32 @@
       .dos-col img { max-height: 15vh; }
       .tech-chips span { font-size: clamp(.72rem, 1.9vh, .88rem); padding: .32rem .6rem; }
       .miembro-lista { font-size: clamp(.7rem, 1.8vh, .82rem); }
+      .miembro-foto { width: clamp(48px, 8vh, 64px); height: clamp(48px, 8vh, 64px); margin-bottom: .3rem; }
+      .miembro-nombre { font-size: clamp(1rem, 2.4vh, 1.2rem); }
+      .miembro-rol { font-size: clamp(.72rem, 1.8vh, .85rem); margin: 2px 0 .35rem; }
+      .objetivo-general { padding: .55rem .85rem; font-size: clamp(.85rem, 2vh, 1rem); }
+      .objetivo-general .etiqueta { font-size: .7rem; }
+      .lista-check { gap: .3rem; }
+      .lista-check li { padding: .4rem .7rem; font-size: clamp(.8rem, 1.9vh, .95rem); gap: 8px; }
+      .mv-card, .segmento-card { padding: .6rem .8rem; }
+      .mv-card .mv-icon, .segmento-card .icono { font-size: clamp(1.2rem, 2.8vh, 1.6rem); margin-bottom: .25rem; }
+      .mv-card h3, .segmento-card h3 { font-size: clamp(1.05rem, 2.4vh, 1.25rem); margin-bottom: .25rem; }
+      .mv-card p, .segmento-card p { font-size: clamp(.78rem, 1.9vh, .92rem); line-height: 1.35; }
+      .servicio-bloque { padding: .35rem .6rem; gap: 2px; }
+      .servicio-bloque .icono { width: clamp(26px, 4.6vh, 34px); height: clamp(26px, 4.6vh, 34px); font-size: clamp(.95rem, 2vh, 1.15rem); margin-bottom: 0; }
+      .servicio-bloque h3 { font-size: clamp(.88rem, 2vh, 1.02rem); margin-bottom: 0; }
+      .servicio-bloque p { font-size: clamp(.7rem, 1.6vh, .8rem); line-height: 1.26; }
+      .recursos-grid { gap: .4rem; }
+      .paleta-grid { gap: .4rem; }
+      .paleta-chip .swatch { height: 46px; }
+      .paleta-chip .info { padding: .3rem .3rem; }
+      .paleta-chip .nombre { font-size: .78rem; }
+      .paleta-chip .hex { font-size: .66rem; margin-top: 1px; }
+      .fuentes-row { gap: .5rem; }
+      .fuente-card { padding: .45rem .8rem; }
+      .fuente-card .muestra { font-size: 1.2rem; margin-bottom: 1px; }
+      .fuente-card .etiqueta-fuente { font-size: .68rem; }
+      .deco-icon { display: none; }
     }
   </style>
 </head>
@@ -461,10 +496,6 @@
         <p class="eyebrow"><span class="rec-dot"></span> SUSTENTACIÓN DE PROYECTO · SENA / IEDP</p>
         <h1>Academia <span>Sonora</span></h1>
         <p class="subt">El podcast que le pone voz a la educación</p>
-        <div class="integrantes-pill">
-          <span>🎙️ Ana Blanco</span>
-          <span>🎧 Alix Bermonth</span>
-        </div>
         <div class="waveform-mini" id="waveformPortada"></div>
         <p class="portada-footer">Técnica en Integración de Contenidos Digitales · Institución Educativa La Divina Pastora · Cúcuta</p>
       </div>
@@ -528,13 +559,16 @@
             <p class="lead">El podcast institucional nace de nuestra propia voz como estudiantes: auténtico y cercano. No solo hablamos — invitamos a cuestionar, reflexionar y participar en la vida escolar, conectando con futuros estudiantes y familias.</p>
             <p class="lead">Su valor: ofrece al oyente temas de interés para debatir, y beneficia tanto a docentes como a estudiantes que quieran participar.</p>
           </div>
-          <img src="../img/galeria/foto-06.jpg" alt="Grabación del podcast con estudiantes del SENA" />
+          <img src="img/microfono-escritorio.jpg" alt="Micrófono de podcast sobre el escritorio de grabación" />
         </div>
       </div>
     </section>
 
     <!-- ═══ 5. OBJETIVOS ═══ -->
     <section class="slide" data-bg="5">
+      <span class="deco-icon" aria-hidden="true" style="top:10%; left:6%; animation-delay:.2s;">🎙️</span>
+      <span class="deco-icon" aria-hidden="true" style="bottom:14%; right:7%; animation-delay:1.4s;">🎧</span>
+      <span class="deco-icon" aria-hidden="true" style="top:14%; right:9%; font-size:clamp(1.3rem,3vh,2rem); animation-delay:2.4s;">🎧</span>
       <div class="slide-inner">
         <p class="eyebrow">04 — Hacia dónde vamos</p>
         <h2>Objetivos</h2>
@@ -542,7 +576,7 @@
           <span class="etiqueta">🎯 Objetivo general</span>
           Crear un espacio de comunicación institucional mediante un podcast que promueva la reflexión, el análisis y la difusión de temas educativos relevantes.
         </div>
-        <p style="font-size:clamp(.78rem,1.7vh,.95rem); letter-spacing:.1em; text-transform:uppercase; font-weight:800; color:var(--oro);">Objetivos específicos</p>
+        <p style="font-size:clamp(.95rem,2vh,1.15rem); letter-spacing:.1em; text-transform:uppercase; font-weight:800; color:var(--oro);">Objetivos específicos</p>
         <ul class="lista-check">
           <li>Informar sobre novedades, proyectos y logros educativos de la institución</li>
           <li>Fomentar la reflexión crítica sobre problemas actuales de la educación</li>
@@ -553,11 +587,14 @@
 
     <!-- ═══ 6. JUSTIFICACIÓN ═══ -->
     <section class="slide" data-bg="6">
+      <span class="deco-icon" aria-hidden="true" style="top:12%; right:6%; animation-delay:.6s;">🎧</span>
+      <span class="deco-icon" aria-hidden="true" style="bottom:16%; left:7%; animation-delay:1.8s;">🎙️</span>
+      <span class="deco-icon" aria-hidden="true" style="bottom:12%; right:11%; font-size:clamp(1.3rem,3vh,2rem); animation-delay:3s;">🎙️</span>
       <div class="slide-inner">
         <p class="eyebrow">05 — Por qué vale la pena</p>
         <h2>Justificación</h2>
         <div class="tarjeta">
-          <p style="font-size:clamp(1rem,2.3vh,1.3rem); line-height:1.55;">
+          <p>
             El podcast institucional es una herramienta innovadora para fortalecer la comunicación y la identidad educativa. Buscamos informar, reflexionar y compartir experiencias, aprovechando las TIC para llegar de forma cercana y dinámica a estudiantes, docentes y familias — fomentando la participación y el desarrollo de habilidades comunicativas y tecnológicas en la comunidad.
           </p>
         </div>
@@ -576,13 +613,11 @@
             <div class="tech-chips">
               <span>🎬 Camtasia Studio</span>
               <span>🎚️ Audacity</span>
-              <span>🎙️ Speaker Studio</span>
               <span>📱 Grabadora de celular</span>
-              <span>🎧 Spotify</span>
-              <span>🍎 Apple Podcasts</span>
-              <span>🔴 Google Podcasts</span>
               <span>🎨 Canva</span>
               <span>📹 OBS Studio</span>
+              <span>▶️ YouTube</span>
+              <span>🅰️ Adobe</span>
             </div>
           </div>
         </div>
@@ -648,7 +683,7 @@
           <p class="lead">
             Diseño circular en tonos café oscuro con borde dorado. Al centro, un ratoncito con corona de laurel sostiene un libro — símbolos del conocimiento, el aprendizaje y la excelencia académica. Abajo, el nombre del proyecto en tipografía clásica refuerza su identidad educativa y profesional.
           </p>
-          <img src="../img/logos/logo-academia-sonora.jpeg" alt="Logo Academia Sonora" style="background:var(--cacao); padding:1.2rem; border-radius:50%; aspect-ratio:1/1; object-fit:contain; max-height:clamp(140px,32vh,260px);" />
+          <img src="../img/logos/logo-academia-sonora.jpeg" alt="Logo Academia Sonora" style="background:var(--cacao); padding:1.2rem; border-radius:50%; object-fit:contain; width:auto; height:clamp(220px,52vh,480px); aspect-ratio:1/1; margin:0 auto;" />
         </div>
       </div>
     </section>
@@ -682,7 +717,7 @@
           <p class="lead">
             Academia Sonora ofrece contenido educativo en formato podcast, que permite aprender de forma flexible desde cualquier lugar. Aborda temas como el aprendizaje autónomo, la orientación vocacional y la innovación educativa con un lenguaje claro y dinámico. Es gratuito, se distribuye en YouTube y promueve la participación mediante comentarios e interacción en redes sociales.
           </p>
-          <img src="../img/capitulos/capitulo-02.jpg" alt="Miniatura de capítulo del podcast" />
+          <img src="img/mockup-marca.jpg" alt="Mockup de marca Academia Sonora: laptop, micrófono y merchandising" />
         </div>
       </div>
     </section>
@@ -693,7 +728,7 @@
         <p class="eyebrow">13 — Cómo lo damos a conocer</p>
         <h2>Publicidad</h2>
         <div class="tarjeta">
-          <p style="font-size:clamp(1rem,2.3vh,1.3rem); line-height:1.55;">
+          <p>
             Anuncios difundidos a través de redes sociales, principalmente en YouTube. Permiten dar a conocer el nombre del proyecto y sus episodios, llegando a más estudiantes, docentes y familias de la comunidad educativa.
           </p>
         </div>
