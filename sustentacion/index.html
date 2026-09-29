@@ -332,6 +332,25 @@
     .recursos-grid .servicio-bloque h3 { font-size: clamp(1.05rem, 2.3vh, 1.35rem); margin-bottom: 0; }
     .recursos-grid .servicio-bloque p { font-size: clamp(.86rem, 1.8vh, 1.02rem); line-height: 1.3; }
 
+    /* Informe de costos y gastos */
+    .costos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(1.2rem, 2.6vw, 2.2rem); width: 100%; }
+    .costo-item {
+      display: flex; justify-content: space-between; align-items: baseline; gap: .6rem;
+      border-bottom: 1px solid var(--borde);
+      padding: clamp(.28rem, .75vh, .5rem) 0;
+    }
+    .costo-item .desc { font-size: clamp(.72rem, 1.5vh, .92rem); color: var(--crema-70); line-height: 1.25; text-align: left; }
+    .costo-item .valor { font-size: clamp(.76rem, 1.55vh, .95rem); color: var(--crema); font-weight: 700; white-space: nowrap; flex-shrink: 0; font-family: var(--fuente-cuerpo); }
+    .costos-total {
+      display: flex; justify-content: space-between; align-items: center; width: 100%;
+      background: linear-gradient(135deg, rgba(224,123,44,.22), rgba(247,195,77,.14));
+      border: 1px solid var(--borde); border-radius: var(--radio);
+      padding: clamp(.55rem, 1.5vh, .95rem) clamp(1rem, 2vw, 1.6rem);
+      margin-top: clamp(.3rem, .9vh, .6rem);
+    }
+    .costos-total .etiqueta { font-size: clamp(.85rem, 1.8vh, 1.1rem); letter-spacing: .08em; text-transform: uppercase; font-weight: 800; color: var(--oro); }
+    .costos-total .monto { font-family: var(--fuente-display); font-size: clamp(1.25rem, 2.9vh, 1.8rem); font-weight: 700; color: var(--crema); }
+
     .servicio-bloque {
       background: rgba(0,0,0,.2); border: 1px solid var(--borde); border-radius: var(--radio);
       padding: clamp(.8rem, 2vh, 1.4rem) clamp(.9rem, 2vw, 1.3rem);
@@ -517,6 +536,13 @@
       .equipo-tecnico-grid { gap: .5rem; }
       .equipo-tecnico-card img { width: clamp(58px, 16vw, 95px); height: clamp(77px, 21vw, 127px); }
       .equipo-tecnico-card span { font-size: .64rem; max-width: 6rem; line-height: 1.15; }
+      .costos-grid { gap: 0 .7rem; }
+      .costo-item { padding: .18rem 0; gap: .3rem; }
+      .costo-item .desc { font-size: .64rem; line-height: 1.15; }
+      .costo-item .valor { font-size: .66rem; }
+      .costos-total { padding: .4rem .7rem; }
+      .costos-total .etiqueta { font-size: .68rem; }
+      .costos-total .monto { font-size: 1.05rem; }
       /* Panel de QR: en columna angosta se ponen en fila para no apilar demasiado alto */
       .qr-panel { gap: 1rem; }
       .dos-col .qr-card img { width: clamp(100px, 26vw, 165px); }
@@ -845,8 +871,54 @@
       </div>
     </section>
 
-    <!-- ═══ 16. CIERRE ═══ -->
+    <!-- ═══ 16. INFORME DE COSTOS Y GASTOS ═══ -->
     <section class="slide" data-bg="16">
+      <div class="slide-inner">
+        <p class="eyebrow">15 — Presupuesto del proyecto</p>
+        <h2>Informe de <em>costos y gastos</em></h2>
+        <div class="costos-grid">
+          <div class="costo-item"><span class="desc">Cámara Sony ZV-E10</span><span class="valor">$3.375.962</span></div>
+          <div class="costo-item"><span class="desc">Tarjeta SD ADATA 128GB (x2)</span><span class="valor">$211.098</span></div>
+          <div class="costo-item"><span class="desc">Trípode Beston BST-717</span><span class="valor">$1.277.837</span></div>
+          <div class="costo-item"><span class="desc">Batería recargable de la cámara</span><span class="valor">$365.811</span></div>
+          <div class="costo-item"><span class="desc">Cargador de batería para cámara</span><span class="valor">$472.469</span></div>
+          <div class="costo-item"><span class="desc">Grabadora Tascam DR-05XP</span><span class="valor">$1.072.498</span></div>
+          <div class="costo-item"><span class="desc">Memoria para grabadora de audio</span><span class="valor">$76.923</span></div>
+          <div class="costo-item"><span class="desc">Micrófonos de solapa inalámbricos</span><span class="valor">$1.430.473</span></div>
+          <div class="costo-item"><span class="desc">Audífonos Behringer BH470</span><span class="valor">$327.012</span></div>
+          <div class="costo-item"><span class="desc">Cargador de pilas Beston BSTC8006B</span><span class="valor">$69.606</span></div>
+          <div class="costo-item"><span class="desc">Set de pilas recargables AA/AAA</span><span class="valor">$152.541</span></div>
+          <div class="costo-item"><span class="desc">Micrófono Boom</span><span class="valor">$1.296.443</span></div>
+          <div class="costo-item"><span class="desc">Portátil HP + licencia</span><span class="valor">$2.615.330</span></div>
+          <div class="costo-item"><span class="desc">Disco duro externo 2TB</span><span class="valor">$393.852</span></div>
+        </div>
+        <div class="costos-total">
+          <span class="etiqueta">Total invertido</span>
+          <span class="monto">$13.137.855</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 17. INFORME DE GANANCIAS O PÉRDIDAS ═══ -->
+    <section class="slide" data-bg="17">
+      <div class="slide-inner">
+        <p class="eyebrow">16 — Balance del proyecto</p>
+        <h2>Informe de <em>ganancias o pérdidas</em></h2>
+        <div class="dos-tarjetas">
+          <div class="tarjeta">
+            <h3>❤️ Valor pedagógico y humano</h3>
+            <p>La verdadera ganancia de este proyecto no es económica: es el aprendizaje real en comunicación, producción audiovisual y trabajo en equipo, y el impacto humano de darle voz a la comunidad educativa.</p>
+          </div>
+          <div class="tarjeta">
+            <h3>▶ Potencial de monetización</h3>
+            <p>Aunque hoy el enfoque es formativo, un podcast como Academia Sonora tiene potencial real de generar ingresos a futuro, por ejemplo monetizando el canal de YouTube al cumplir sus requisitos de suscriptores y horas de reproducción.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 18. CIERRE ═══ -->
+    <section class="slide" data-bg="18">
       <div class="slide-inner final">
         <img class="logo-final" src="../img/logos/logo-academia-sonora.jpeg" alt="Academia Sonora" />
         <p class="eyebrow"><span class="rec-dot"></span> GRACIAS POR SU ATENCIÓN</p>
