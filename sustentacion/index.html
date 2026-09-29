@@ -101,7 +101,7 @@
       position: absolute;
       inset: 0;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
       padding: clamp(3.6rem, 9vh, 5.2rem) clamp(1.2rem, 4vw, 4rem) clamp(4.2rem, 10vh, 5.6rem);
       opacity: 0;
@@ -261,15 +261,20 @@
     .miembro-lista li { margin-bottom: 2px; }
     .miembro-lista b { color: var(--crema); }
 
-    /* Dos columnas texto + imagen */
-    .dos-col { display: grid; grid-template-columns: 1fr .95fr; gap: clamp(1.2rem, 3.2vw, 2.6rem); align-items: center; }
+    /* Dos columnas texto + imagen — la columna crece para llenar todo el alto disponible de la diapositiva */
+    .dos-col {
+      display: grid; grid-template-columns: 1fr .95fr; grid-template-rows: minmax(0, 1fr); gap: clamp(1.2rem, 3.2vw, 2.6rem); align-items: stretch;
+      width: 100%; flex: 1 1 0; min-height: 0;
+    }
     .dos-col.invertido { grid-template-columns: .95fr 1fr; }
     .dos-col img {
-      width: 100%; height: clamp(280px, 62vh, 640px); object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover;
       border-radius: var(--radio); box-shadow: var(--sombra);
       border: 1px solid var(--borde);
     }
-    .dos-col .col-texto { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(.4rem, 1.2vh, .8rem); }
+    .dos-col .col-texto { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: clamp(.4rem, 1.2vh, .8rem); min-height: 0; }
+    .dos-col > .lead { display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+    .logo-corporativo { width: auto; height: clamp(220px, 48vh, 480px); aspect-ratio: 1/1; flex: 0 0 auto; }
 
     /* Listas con check */
     .lista-check { list-style: none; display: grid; gap: clamp(.35rem, 1vh, .6rem); text-align: left; }
@@ -417,13 +422,22 @@
 
     @media (max-width: 680px) {
       .integrantes-grid, .dos-tarjetas, .mv-grid, .segmento-grid, .recursos-grid { grid-template-columns: 1fr; }
-      .dos-col, .dos-col.invertido { grid-template-columns: 1fr; }
-      .dos-col img { max-height: 20vh; }
+      /* En una sola columna, el texto conserva su alto natural y la imagen crece para llenar el resto */
+      .dos-col, .dos-col.invertido { display: flex; flex-direction: column; justify-content: center; gap: .8rem; }
+      .dos-col img { width: 100%; height: auto; flex: 1 1 auto; min-height: 130px; }
+      .dos-col .col-texto, .dos-col > .lead { flex: 0 0 auto; }
+      .logo-corporativo { height: clamp(150px, 34vh, 480px); }
       .paleta-grid { grid-template-columns: repeat(3, 1fr); }
       .nav-puntos { max-width: 38vw; }
       .slide { padding: clamp(3.4rem, 8vh, 4.6rem) 1rem clamp(4.4rem, 11vh, 5.6rem); }
       .slide h2 { font-size: clamp(1.6rem, 5.6vh, 2.6rem); }
       .slide-inner { gap: clamp(.5rem, 1.5vh, 1rem); }
+      /* El título de portada escala por vh y puede volverse más ancho que la pantalla en un móvil angosto y alto */
+      .portada h1 { font-size: clamp(2.2rem, 13vw, 4.2rem); }
+      .portada .subt { font-size: clamp(1.05rem, 4.6vw, 1.4rem); }
+      /* En una columna angosta el texto envuelve mucho más: se reduce para dejarle espacio real a la imagen */
+      .lead { font-size: clamp(.92rem, 2.3vh, 1.18rem); line-height: 1.4; }
+      .tarjeta p { font-size: clamp(1rem, 2.5vh, 1.3rem); }
 
       /* Tarjetas de integrantes más compactas para caber sin scroll */
       .integrantes-grid { gap: .6rem; }
@@ -436,8 +450,11 @@
       .deco-icon { display: none; }
     }
 
-    /* Viewports bajos (móviles horizontales o pantallas cortas): comprime más */
-    @media (max-height: 700px) {
+    /* Móviles angostos (retrato): comprime tarjetas, listas y grillas para que quepan sin recortes,
+       incluso en teléfonos altos donde el envoltorio de texto en una sola columna ya ocupa mucho alto.
+       Se limita por ancho, no por alto, para no aplastar ventanas anchas-pero-bajas (navegador sin pantalla
+       completa, proyector con barra de tareas visible), donde la columna de imagen ya crece dinámicamente arriba. */
+    @media (max-width: 680px) {
       .slide { padding: clamp(2.8rem, 7vh, 3.8rem) 1.1rem clamp(3.8rem, 9.5vh, 4.8rem); }
       .slide-inner { gap: clamp(.4rem, 1.2vh, .7rem); }
       .slide h2 { font-size: clamp(1.35rem, 5.4vh, 2.1rem); line-height: 1.08; }
@@ -447,7 +464,7 @@
       .tarjeta p { font-size: clamp(.8rem, 2vh, .96rem); line-height: 1.4; }
       .tarjeta h3 { font-size: clamp(.92rem, 2.4vh, 1.08rem); margin-bottom: .3rem; }
       .dos-tarjetas { gap: .6rem; }
-      .dos-col img { max-height: 15vh; }
+      .dos-col img { min-height: 90px; }
       .tech-chips span { font-size: clamp(.72rem, 1.9vh, .88rem); padding: .32rem .6rem; }
       .miembro-lista { font-size: clamp(.7rem, 1.8vh, .82rem); }
       .miembro-foto { width: clamp(48px, 8vh, 64px); height: clamp(48px, 8vh, 64px); margin-bottom: .3rem; }
@@ -683,7 +700,7 @@
           <p class="lead">
             Diseño circular en tonos café oscuro con borde dorado. Al centro, un ratoncito con corona de laurel sostiene un libro — símbolos del conocimiento, el aprendizaje y la excelencia académica. Abajo, el nombre del proyecto en tipografía clásica refuerza su identidad educativa y profesional.
           </p>
-          <img src="../img/logos/logo-academia-sonora.jpeg" alt="Logo Academia Sonora" style="background:var(--cacao); padding:1.2rem; border-radius:50%; object-fit:contain; width:auto; height:clamp(220px,52vh,480px); aspect-ratio:1/1; margin:0 auto;" />
+          <img class="logo-corporativo" src="../img/logos/logo-academia-sonora.jpeg" alt="Logo Academia Sonora" style="background:var(--cacao); padding:1.2rem; border-radius:50%; object-fit:contain; margin:0 auto; align-self:center; justify-self:center;" />
         </div>
       </div>
     </section>
